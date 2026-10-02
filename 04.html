@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1.0">
+<title>HariPrasath P | Design 04 — Gothic Archive</title>
+<style>
+:root{--black:#080708;--paper:#d9d1c3;--dim:#8f877c;--wine:#8d1f2d;--line:#30292a;--gold:#b99b65}
+*{box-sizing:border-box}html{scroll-behavior:smooth}body{margin:0;background:var(--black);color:var(--paper);font-family:Georgia,"Times New Roman",serif;line-height:1.7}
+body:after{content:"";position:fixed;inset:0;pointer-events:none;opacity:.08;background:repeating-linear-gradient(0deg,transparent 0 3px,#fff 4px);mix-blend-mode:screen}
+a{color:inherit;text-decoration:none}
+.opening{position:fixed;inset:0;background:#050405;z-index:99;display:grid;place-items:center;animation:vanish 1.2s ease 4.2s forwards}
+.seal{width:min(430px,75vw);aspect-ratio:1;border:1px solid #493d3d;border-radius:50%;display:grid;place-items:center;position:relative;animation:rotate 4s linear infinite}
+.seal:before,.seal:after{content:"";position:absolute;border:1px solid #493d3d;inset:9%;transform:rotate(45deg)}
+.seal:after{inset:22%;transform:rotate(22.5deg)}
+.seal-core{text-align:center;position:relative;z-index:2}.seal-core small{display:block;color:var(--gold);letter-spacing:.35em;font-size:10px}.seal-core b{display:block;font-size:clamp(2.8rem,8vw,6rem);font-weight:normal;line-height:1}.seal-core span{display:block;color:var(--dim);font-size:11px;letter-spacing:.2em;margin-top:12px}
+.opening .rune{position:absolute;color:#5b4d4d;font-size:12px}.r1{top:12%;left:12%}.r2{top:17%;right:15%}.r3{bottom:16%;left:18%}.r4{bottom:11%;right:13%}
+@keyframes rotate{to{transform:rotate(360deg)}}@keyframes vanish{to{opacity:0;visibility:hidden;pointer-events:none}}
+.container{width:min(1180px,88%);margin:auto}
+header{min-height:100vh;position:relative;display:flex;flex-direction:column}
+.nav{padding:30px 0;border-bottom:1px solid var(--line);display:flex;justify-content:space-between;align-items:center}
+.crest{font-size:24px;color:var(--gold)}.navlinks{display:flex;gap:25px;font-size:10px;letter-spacing:.18em;text-transform:uppercase;color:var(--dim)}.navlinks a:hover{color:var(--paper)}
+.hero{margin:auto 0;position:relative;padding:70px 0}
+.hero:before{content:"IV";position:absolute;right:-3vw;top:0;font:normal 25vw/1 Georgia,serif;color:#151112;z-index:-1}
+.kicker{text-transform:uppercase;letter-spacing:.35em;color:var(--wine);font-size:11px}
+.hero h1{font:normal clamp(4.5rem,12vw,10rem)/.78 Georgia,serif;letter-spacing:-.065em;margin:25px 0 30px;max-width:1000px}
+.hero h1 span{display:block;font-style:italic;color:var(--gold)}
+.hero-intro{max-width:650px;font-size:18px;color:#aaa198}
+.scroll{position:absolute;bottom:35px;left:0;color:var(--dim);font-size:10px;letter-spacing:.2em;text-transform:uppercase}
+.scroll:after{content:" ↓";color:var(--gold)}
+section{padding:120px 0;border-top:1px solid var(--line)}
+.eyebrow{font-size:10px;color:var(--gold);letter-spacing:.28em;text-transform:uppercase;margin-bottom:20px}
+h2{font:normal clamp(3rem,8vw,7rem)/.82 Georgia,serif;letter-spacing:-.06em;margin:0 0 60px}
+.intro-grid{display:grid;grid-template-columns:1fr 1.5fr;gap:9vw}.intro-grid p{margin:0;color:#a8a097}.intro-grid .lead{font-size:26px;color:var(--paper);line-height:1.35}
+.manifesto{margin-top:65px;border-top:1px solid var(--line);border-bottom:1px solid var(--line);padding:35px 0;font-size:clamp(1.5rem,3vw,2.5rem);font-style:italic;color:#c0b6a8}
+.education{display:grid;grid-template-columns:1fr 2fr;border-top:1px solid var(--line)}
+.edu-left{padding:30px 0;color:var(--dim);font-size:12px;text-transform:uppercase;letter-spacing:.15em}
+.edu-right{padding:30px 0 30px 5vw;border-bottom:1px solid var(--line)}
+.edu-right h3{font-size:32px;font-weight:normal;margin:0 0 5px}.edu-right p{margin:0;color:var(--dim)}
+.skills-wrap{display:grid;grid-template-columns:1fr 2fr;gap:7vw}
+.skill-list{border-top:1px solid var(--line)}
+.skill{padding:24px 0;border-bottom:1px solid var(--line);display:grid;grid-template-columns:40px 1fr;gap:20px}
+.skill-no{color:var(--wine);font-style:italic}.skill h3{font-size:25px;font-weight:normal;margin:0 0 5px}.skill p{margin:0;color:var(--dim);font-size:14px}
+.experience{position:relative}.experience:before{content:"";position:absolute;left:21px;top:0;bottom:0;width:1px;background:var(--line)}
+.job{display:grid;grid-template-columns:110px 1fr;gap:50px;position:relative;padding:0 0 80px}.job:last-child{padding-bottom:0}
+.job-mark{width:43px;height:43px;border:1px solid var(--wine);background:var(--black);display:grid;place-items:center;color:var(--gold);z-index:2}
+.job-date{font-size:10px;color:var(--dim);text-align:right;padding-top:10px}
+.job-content{border-bottom:1px solid var(--line);padding-bottom:45px}.job:last-child .job-content{border-bottom:0}
+.job-content h3{font-size:clamp(2rem,4vw,3.6rem);font-weight:normal;line-height:1;margin:0 0 9px}.role{color:var(--wine);font-size:10px;letter-spacing:.18em;text-transform:uppercase}.job-content p{color:#aaa097;max-width:760px;margin:22px 0}
+.tools{display:flex;gap:20px;flex-wrap:wrap;color:var(--gold);font-size:11px}.tools span:before{content:"✦ ";color:var(--wine)}
+.activities{display:grid;grid-template-columns:repeat(3,1fr);gap:1px;background:var(--line)}
+.activity{background:var(--black);padding:28px;min-height:190px}.activity b{color:var(--wine);font-size:11px}.activity h3{font-weight:normal;font-size:23px;margin:25px 0 8px}.activity p{color:var(--dim);font-size:14px}
+.future{background:#0d090a;position:relative;overflow:hidden}.future:before{content:"FUTURE";position:absolute;right:-2vw;bottom:-5vw;font-size:20vw;color:#120d0e;z-index:0}
+.future>*{position:relative;z-index:1}.future-list{display:grid;grid-template-columns:1fr 1fr;border-top:1px solid var(--line)}.future-item{padding:25px 0;border-bottom:1px solid var(--line);font-size:20px}.future-item:nth-child(odd){padding-right:4vw}.future-item span{display:block;color:var(--wine);font-size:10px;letter-spacing:.15em;margin-bottom:8px}
+footer{padding:120px 0 40px;border-top:1px solid var(--line)}.contact-grid{display:grid;grid-template-columns:1.3fr 1fr;gap:10vw}.contact-title{font-size:clamp(4rem,10vw,9rem);line-height:.8;margin:0}.contact-title em{color:var(--gold);font-weight:normal}.contact-links{display:flex;flex-direction:column;gap:15px}.contact-links a{padding:18px 0;border-bottom:1px solid var(--line);font-size:14px}.contact-links a:hover{color:var(--gold);padding-left:12px}.copyright{display:flex;justify-content:space-between;margin-top:100px;color:#544c46;font-size:10px;letter-spacing:.12em;text-transform:uppercase}
+@media(max-width:800px){.container{width:88%}.navlinks{display:none}.hero{padding:100px 0}.hero h1{font-size:20vw}.hero:before{font-size:45vw}.intro-grid,.skills-wrap,.contact-grid{grid-template-columns:1fr;gap:35px}.education{grid-template-columns:1fr}.edu-right{padding-left:0}.job{grid-template-columns:55px 1fr;gap:25px}.job-date{display:none}.activities,.future-list{grid-template-columns:1fr}.future-item:nth-child(odd){padding-right:0}.copyright{flex-direction:column;gap:10px}}
+@media(prefers-reduced-motion:reduce){*,*:before,*:after{animation:none!important;scroll-behavior:auto!important}}
+</style>
+</head>
+<body>
+
+<div class="opening">
+  <div class="rune r1">IV · MCMXXVI</div><div class="rune r2">CAD / FAB</div><div class="rune r3">MECH · 03</div><div class="rune r4">ARCHIVE 04</div>
+  <div class="seal">
+    <div class="seal-core"><small>THE ENGINEER'S</small><b>HP</b><span>ARCHIVE / 04</span></div>
+  </div>
+</div>
+
+<header class="container" id="top">
+  <div class="nav">
+    <a class="crest" href="#top">✦ HP</a>
+    <div class="navlinks"><a href="#about">About</a><a href="#education">Education</a><a href="#skills">Skills</a><a href="#experience">Experience</a><a href="#contact">Contact</a></div>
+  </div>
+  <div class="hero">
+    <div class="kicker">Mechanical Engineering · Personal Archive</div>
+    <h1>HariPrasath <span>P</span></h1>
+    <p class="hero-intro">A mechanical engineering student exploring design, manufacturing and additive manufacturing through study, industry exposure and hands-on work.</p>
+  </div>
+  <div class="scroll">Enter the archive</div>
+</header>
+
+<main class="container">
+<section id="about">
+  <div class="eyebrow">I / The Person</div>
+  <h2>Built to<br>understand.</h2>
+  <div class="intro-grid">
+    <p class="lead">I am a B.E. Mechanical Engineering student at Sri Sairam Institute of Technology, with an interest in mechanical design, CAD, manufacturing processes and additive manufacturing.</p>
+    <div><p>I work across engineering design, manufacturing knowledge, CAD modelling, technical drawing and practical experimentation.</p><p>I am continuously developing my skills through academic projects, internships, technical learning and hands-on engineering work.</p></div>
+  </div>
+  <div class="manifesto">“Design is where an idea becomes a form. Manufacturing is where that form meets reality.”</div>
+</section>
+
+<section id="education">
+  <div class="eyebrow">II / Foundation</div>
+  <h2>The<br>foundation.</h2>
+  <div class="education">
+    <div class="edu-left">2024 — 2028</div>
+    <div class="edu-right"><h3>B.E. Mechanical Engineering</h3><p>Sri Sairam Institute of Technology</p><p>Current status: 3rd Year</p></div>
+    <div class="edu-left">Discipline</div>
+    <div class="edu-right"><h3>Mechanical Engineering</h3><p>CAD · Design · Manufacturing · Additive Manufacturing</p></div>
+  </div>
+</section>
+
+<section id="skills">
+  <div class="eyebrow">III / Craft</div>
+  <h2>The<br>craft.</h2>
+  <div class="skills-wrap">
+    <div><p style="color:var(--dim);max-width:350px">A growing technical toolkit built around the relationship between digital design and physical manufacturing.</p></div>
+    <div class="skill-list">
+      <div class="skill"><div class="skill-no">01</div><div><h3>CAD &amp; Mechanical Design</h3><p>SOLIDWORKS — Intermediate · AutoCAD — Intermediate · Engineering Drawing · Machine Drawing · Mechanical Design · 2D CAD Drafting</p></div></div>
+      <div class="skill"><div class="skill-no">02</div><div><h3>Manufacturing</h3><p>Manufacturing Processes · Conventional Manufacturing Concepts · Production-oriented Design Concepts · Manufacturing Workflow Understanding</p></div></div>
+      <div class="skill"><div class="skill-no">03</div><div><h3>Additive Manufacturing</h3><p>FDM · SLA · Model Orientation · Support Structures · Build-Plate Adhesion · Infill Selection · Print Quality · Basic Machine Operation · Filament Handling</p></div></div>
+      <div class="skill"><div class="skill-no">04</div><div><h3>Programming &amp; Digital Tools</h3><p>C Programming · Python · Git · GitHub · Technical Documentation</p></div></div>
+    </div>
+  </div>
+</section>
+
+<section id="experience">
+  <div class="eyebrow">IV / Field Records</div>
+  <h2>What the<br>field taught.</h2>
+  <div class="experience">
+    <article class="job">
+      <div><div class="job-mark">I</div><div class="job-date">28 JUL —<br>13 AUG<br>2026</div></div>
+      <div class="job-content"><h3>Precision Engineering<br>Technology Centre</h3><div class="role">Additive Manufacturing Internship</div><p>Gained practical exposure to FDM and SLA additive manufacturing workflows, including model preparation, orientation, support generation, build-plate adhesion, infill selection, print-quality considerations, machine operation and filament handling.</p><div class="tools"><span>Fracktory</span><span>Bambu Studio</span><span>Voxeldance Tango</span></div></div>
+    </article>
+    <article class="job">
+      <div><div class="job-mark">II</div><div class="job-date">09 JUN —<br>25 JUN<br>2026</div></div>
+      <div class="job-content"><h3>Switching Technologies<br>Gunther Limited</h3><div class="role">Industrial Internship</div><p>Gained industrial exposure to engineering and manufacturing practices in a professional production environment, developing an understanding of workplace procedures, manufacturing operations and practical engineering applications.</p></div>
+    </article>
+  </div>
+</section>
+
+<section>
+  <div class="eyebrow">V / Field Notes</div>
+  <h2>Records<br>of practice.</h2>
+  <div class="activities">
+    <article class="activity"><b>01</b><h3>IEEE Xtreme</h3><p>Participated in IEEE Xtreme programming competitions.</p></article>
+    <article class="activity"><b>02</b><h3>NPTEL</h3><p>Completed multiple NPTEL courses and certifications.</p></article>
+    <article class="activity"><b>03</b><h3>Skillrack</h3><p>Practiced programming through Skillrack.</p></article>
+    <article class="activity"><b>04</b><h3>SWAYAM</h3><p>Continued technical learning through SWAYAM.</p></article>
+    <article class="activity"><b>05</b><h3>CAD Practice</h3><p>Developed CAD-based mechanical drawing work.</p></article>
+    <article class="activity"><b>06</b><h3>Additive Manufacturing</h3><p>Gained hands-on exposure to additive manufacturing.</p></article>
+  </div>
+</section>
+
+<section class="future">
+  <div class="eyebrow">VI / Next Chapter</div>
+  <h2>The work<br>continues.</h2>
+  <div class="future-list">
+    <div class="future-item"><span>01 / Developing</span>Advanced CAD &amp; Mechanical Design</div>
+    <div class="future-item"><span>02 / Developing</span>Manufacturing &amp; Production Knowledge</div>
+    <div class="future-item"><span>03 / Developing</span>Additive Manufacturing</div>
+    <div class="future-item"><span>04 / Developing</span>Engineering Software</div>
+    <div class="future-item"><span>05 / Developing</span>Programming &amp; Automation</div>
+    <div class="future-item"><span>06 / Developing</span>Practical Engineering Projects</div>
+  </div>
+</section>
+</main>
+
+<footer class="container" id="contact">
+  <div class="eyebrow">VII / Correspondence</div>
+  <div class="contact-grid">
+    <h2 class="contact-title">Write<br><em>back.</em></h2>
+    <div class="contact-links">
+      <a href="mailto:sit24me031@sairamtap.edu.in">Email — sit24me031@sairamtap.edu.in</a>
+      <a href="https://github.com/Harry13181" target="_blank" rel="noopener">GitHub — Harry13181</a>
+      <a href="https://linkedin.com/in/hari-prasath-p-bb4b11404" target="_blank" rel="noopener">LinkedIn — HariPrasath P</a>
+      <a href="https://harry13181.github.io/Portfolio/" target="_blank" rel="noopener">Portfolio — GitHub Pages</a>
+    </div>
+  </div>
+  <div class="copyright"><span>THE ENGINEER'S ARCHIVE / DESIGN 04</span><span>© 2026 HariPrasath P</span></div>
+</footer>
+</body>
+</html>
