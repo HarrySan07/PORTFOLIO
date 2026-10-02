@@ -31,15 +31,15 @@ Engineering Software & Programming
 
 ## ⚙️ Engineering Focus
 
-| Area | Focus |
-|---|---|
-| 📐 Mechanical Design | Machine Design, Engineering Drawing |
-| 🖥️ CAD | SOLIDWORKS, AutoCAD |
-| 🏭 Manufacturing | Manufacturing Processes |
-| 🖨️ Additive Manufacturing | FDM, SLA |
-| 💻 Programming | C, Python |
-| 🔧 Engineering Tools | Git, GitHub |
-| 📚 Technical Development | Documentation, Engineering Analysis |
+| Area                      | Focus                               |
+| ------------------------- | ----------------------------------- |
+| 📐 Mechanical Design      | Machine Design, Engineering Drawing |
+| 🖥️ CAD                    | SOLIDWORKS, AutoCAD                 |
+| 🏭 Manufacturing          | Manufacturing Processes             |
+| 🖨️ Additive Manufacturing | FDM, SLA                            |
+| 💻 Programming            | C, Python                           |
+| 🔧 Engineering Tools      | Git, GitHub                         |
+| 📚 Technical Development  | Documentation, Engineering Analysis |
 
 ---
 
@@ -108,11 +108,11 @@ Gained practical exposure to **FDM and SLA additive manufacturing workflows**, i
 
 ### Software Exposure
 
-| Software | Application |
-|---|---|
-| **Fracktory** | FDM workflow |
-| **Bambu Studio** | FDM slicing & preparation |
-| **Voxeldance Tango** | SLA workflow |
+| Software             | Application               |
+| -------------------- | ------------------------- |
+| **Fracktory**        | FDM workflow              |
+| **Bambu Studio**     | FDM slicing & preparation |
+| **Voxeldance Tango** | SLA workflow              |
 
 ---
 
