@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1.0">
+<title>HariPrasath P | Design 11 — Blueprint Drafting Table</title>
+<style>
+:root{--paper:#dfe8e5;--ink:#16383d;--cyan:#5f9294;--red:#a63f3a;--grid:rgba(22,56,61,.16);--white:#edf3f0}
+*{box-sizing:border-box}html{scroll-behavior:smooth}body{margin:0;background:var(--paper);color:var(--ink);font-family:"Courier New",monospace}
+body:before{content:"";position:fixed;inset:0;pointer-events:none;background-image:linear-gradient(var(--grid) 1px,transparent 1px),linear-gradient(90deg,var(--grid) 1px,transparent 1px);background-size:28px 28px;z-index:20}
+a{color:inherit;text-decoration:none}
+.loader{position:fixed;inset:0;background:var(--ink);color:var(--paper);z-index:99;display:grid;place-items:center;animation:fade .7s 4.5s forwards}.draw{width:min(70vw,650px);height:220px;position:relative}.draw svg{width:100%;height:100%;overflow:visible}.line{fill:none;stroke:var(--paper);stroke-width:2;stroke-dasharray:1800;stroke-dashoffset:1800;animation:draw 2.5s ease .2s forwards}.line2{fill:none;stroke:var(--red);stroke-width:3;stroke-dasharray:800;stroke-dashoffset:800;animation:draw 1.5s ease 2.1s forwards}.loadtext{position:absolute;bottom:-10px;left:0;right:0;text-align:center;font-size:10px;letter-spacing:.25em}@keyframes draw{to{stroke-dashoffset:0}}@keyframes fade{to{opacity:0;visibility:hidden}}
+.sheet{width:min(1240px,92%);margin:auto}.header{height:78px;border-bottom:2px solid var(--ink);display:grid;grid-template-columns:1fr auto 1fr;align-items:center}.logo{font-size:13px;font-weight:bold}.titlebar{text-align:center;font-size:10px;letter-spacing:.2em}.meta{text-align:right;font-size:9px}
+.hero{min-height:calc(100vh - 78px);display:grid;grid-template-columns:1fr 1fr;gap:50px;align-items:center;border-bottom:2px solid var(--ink)}.hero h1{font-family:Arial,sans-serif;font-size:clamp(5rem,14vw,13rem);line-height:.72;letter-spacing:-.1em;margin:0;font-weight:900}.hero h1 span{display:block;color:transparent;-webkit-text-stroke:2px var(--ink)}.hero .sub{margin-top:45px;font-size:12px;line-height:1.7;max-width:530px}.blueprint{position:relative;aspect-ratio:1;background:rgba(255,255,255,.2);border:2px solid var(--ink);overflow:hidden}.blueprint:before{content:"";position:absolute;inset:12%;border:1px dashed var(--cyan);border-radius:50%}.blueprint:after{content:"";position:absolute;left:50%;top:8%;bottom:8%;width:1px;background:var(--cyan);box-shadow:-190px 0 var(--grid),190px 0 var(--grid)}.cross{position:absolute;left:50%;top:50%;width:62%;height:62%;border:2px solid var(--ink);transform:translate(-50%,-50%) rotate(45deg)}.cross:before,.cross:after{content:"";position:absolute;background:var(--red)}.cross:before{width:100%;height:3px;top:50%;left:0}.cross:after{height:100%;width:3px;left:50%;top:0}.dim{position:absolute;font-size:9px}.d1{top:5%;left:42%}.d2{right:4%;top:48%}.d3{bottom:5%;left:43%}.d4{left:4%;top:48%}
+section{padding:110px 0;border-bottom:2px solid var(--ink)}.eyebrow{font-size:9px;font-weight:bold;letter-spacing:.25em;color:var(--red)}.heading{font-family:Arial,sans-serif;font-size:clamp(4rem,10vw,10rem);line-height:.7;letter-spacing:-.1em;margin:25px 0 70px;font-weight:900;text-transform:uppercase}.heading span{color:var(--red)}
+.notes{display:grid;grid-template-columns:1fr 1fr;border-top:1px solid var(--ink)}.note{padding:25px 0}.note:first-child{padding-right:45px;border-right:1px solid var(--ink)}.note:last-child{padding-left:45px}.note h3{font-family:Arial,sans-serif;font-size:26px;margin:0 0 25px}.note p{font-size:12px;line-height:1.8}
+.drawing-grid{display:grid;grid-template-columns:1fr 1fr;gap:18px}.drawing{border:2px solid var(--ink);min-height:290px;padding:25px;position:relative;background:rgba(255,255,255,.22);overflow:hidden}.drawing .num{font-size:9px;color:var(--red);font-weight:bold}.drawing h3{font-family:Arial,sans-serif;font-size:36px;letter-spacing:-.06em;line-height:.8;margin:70px 0 15px}.drawing p{font-size:11px;line-height:1.6;max-width:600px}.drawing .shape{position:absolute;right:25px;top:25px;width:60px;height:60px;border:1px solid var(--cyan);border-radius:50%}.drawing .shape:before,.drawing .shape:after{content:"";position:absolute;background:var(--cyan)}.drawing .shape:before{height:1px;width:100%;top:50%}.drawing .shape:after{width:1px;height:100%;left:50%}
+.table{border:2px solid var(--ink)}.row{display:grid;grid-template-columns:70px 1.5fr 1fr 1fr;border-bottom:1px solid var(--ink);min-height:85px;align-items:center}.row:last-child{border-bottom:0}.row>div{padding:15px;border-right:1px solid var(--ink);height:100%;display:flex;align-items:center}.row>div:last-child{border-right:0}.row.head{background:var(--ink);color:var(--paper);font-size:9px;font-weight:bold}.row:not(.head){font-size:11px}.row .red{color:var(--red)}
+.experience{position:relative;border-left:2px solid var(--ink);margin-left:30px}.job{position:relative;padding:10px 0 70px 55px}.job:last-child{padding-bottom:0}.job:before{content:"";position:absolute;left:-8px;top:10px;width:13px;height:13px;border:2px solid var(--red);background:var(--paper)}.job .date{font-size:9px;color:var(--red)}.job h3{font-family:Arial,sans-serif;font-size:clamp(2.3rem,5vw,5rem);line-height:.78;letter-spacing:-.08em;margin:15px 0}.job h4{font-size:9px;letter-spacing:.15em}.job p{font-size:11px;line-height:1.7;max-width:760px}
+.legend{display:grid;grid-template-columns:repeat(4,1fr);border:2px solid var(--ink)}.legend-item{padding:22px;border-right:1px solid var(--ink);min-height:160px}.legend-item:last-child{border-right:0}.legend-item b{font-size:9px}.legend-item h3{font-family:Arial,sans-serif;font-size:25px;margin-top:55px}.legend-item p{font-size:10px}
+.future{display:grid;grid-template-columns:repeat(3,1fr);gap:12px}.future div{border:2px solid var(--ink);padding:20px;min-height:145px}.future div:nth-child(2){border-style:dashed}.future div:nth-child(3){border-color:var(--red)}.future div:nth-child(5){border-style:dotted}.future span{float:right;color:var(--red);font-size:8px}.future h3{font-family:Arial,sans-serif;font-size:21px;letter-spacing:-.04em;margin-top:60px}
+.contact{background:var(--ink);color:var(--paper);border-bottom:0}.contact .eyebrow{color:#d86c64}.contact .heading{font-size:clamp(5rem,15vw,15rem)}.contact-grid{display:grid;grid-template-columns:1fr 1fr;gap:70px}.links a{display:block;border-bottom:1px solid var(--cyan);padding:18px 0;font-size:10px}.links a:hover{color:#fff}.footer{border-top:1px solid var(--cyan);margin-top:100px;padding-top:15px;display:flex;justify-content:space-between;font-size:9px;color:#9bb1af}
+@media(max-width:800px){.sheet{width:88%}.header{grid-template-columns:1fr auto}.titlebar{display:none}.meta{display:none}.hero{grid-template-columns:1fr;padding:80px 0}.notes,.contact-grid{grid-template-columns:1fr}.note:first-child{padding-right:0;border-right:0;border-bottom:1px solid var(--ink)}.note:last-child{padding-left:0}.drawing-grid{grid-template-columns:1fr}.row{grid-template-columns:45px 1.5fr 1fr}.row>div:nth-child(4){display:none}.legend{grid-template-columns:1fr 1fr}.legend-item:nth-child(2n){border-right:0}.legend-item{border-bottom:1px solid var(--ink)}.future{grid-template-columns:1fr}.footer{flex-direction:column;gap:10px}}
+@media(prefers-reduced-motion:reduce){*,*:before,*:after{animation:none!important}}
+</style>
+</head>
+<body>
+
+<div class="loader">
+<div class="draw">
+<svg viewBox="0 0 650 220">
+<rect class="line" x="20" y="20" width="610" height="170"/>
+<circle class="line" cx="325" cy="105" r="65"/>
+<path class="line" d="M260 105h130M325 40v130M279 59l92 92M371 59l-92 92"/>
+<path class="line2" d="M110 105h150M390 105h150"/>
+</svg>
+<div class="loadtext">GENERATING DRAWING SHEET / 11 / HP</div>
+</div>
+</div>
+
+<div class="sheet">
+<header class="header"><a class="logo" href="#top">HP — 11</a><div class="titlebar">ENGINEERING DRAWING / PORTFOLIO SHEET</div><div class="meta">SCALE 1:1<br>REV. 2026</div></header>
+
+<main id="top">
+<section class="hero" style="border-top:0">
+<div><div class="eyebrow">DWG-11-001 / TITLE BLOCK</div><h1>HariPrasath <span>P</span></h1><div class="sub">MECHANICAL ENGINEERING STUDENT<br>CAD &amp; MECHANICAL DESIGN · MANUFACTURING · ADDITIVE MANUFACTURING<br><br>BE MECHANICAL ENGINEERING / SRI SAIRAM INSTITUTE OF TECHNOLOGY / 2024—2028 / 3RD YEAR</div></div>
+<div class="blueprint"><div class="cross"></div><span class="dim d1">Ø 100</span><span class="dim d2">R 50</span><span class="dim d3">100</span><span class="dim d4">100</span></div>
+</section>
+
+<section id="about"><div class="eyebrow">DWG-11-002 / GENERAL NOTES</div><h2 class="heading">General <span>Notes</span></h2><div class="notes"><div class="note"><h3>ABOUT THE DESIGNER</h3><p>I am a B.E. Mechanical Engineering student at Sri Sairam Institute of Technology, with an interest in mechanical design, CAD, manufacturing processes and additive manufacturing.</p></div><div class="note"><h3>DESIGN INTENT</h3><p>My technical interests combine engineering design, manufacturing knowledge, CAD modelling, technical drawing and practical experimentation. I am continuously developing my skills through academic projects, internships, technical learning and hands-on engineering work.</p></div></div></section>
+
+<section><div class="eyebrow">DWG-11-003 / SPECIFICATION</div><h2 class="heading">Drawing <span>Data</span></h2><div class="table">
+<div class="row head"><div>ITEM</div><div>SPECIFICATION</div><div>STATUS</div><div>REFERENCE</div></div>
+<div class="row"><div>01</div><div>B.E. Mechanical Engineering</div><div class="red">3RD YEAR</div><div>2024—2028</div></div>
+<div class="row"><div>02</div><div>Sri Sairam Institute of Technology</div><div>ACTIVE</div><div>EDUCATION</div></div>
+<div class="row"><div>03</div><div>SOLIDWORKS / AutoCAD</div><div>INTERMEDIATE</div><div>CAD</div></div>
+<div class="row"><div>04</div><div>FDM / SLA Additive Manufacturing</div><div>EXPOSURE</div><div>AM</div></div>
+<div class="row"><div>05</div><div>C / Python / Git / GitHub</div><div>WORKING</div><div>DIGITAL</div></div>
+</div></section>
+
+<section><div class="eyebrow">DWG-11-004 / DETAIL CALLOUTS</div><h2 class="heading">Technical <span>Details</span></h2><div class="drawing-grid">
+<div class="drawing"><div class="num">DETAIL A / CAD</div><div class="shape"></div><h3>CAD &amp; Mechanical Design</h3><p>SOLIDWORKS — Intermediate · AutoCAD — Intermediate · Engineering Drawing · Machine Drawing · Mechanical Design · 2D CAD Drafting</p></div>
+<div class="drawing"><div class="num">DETAIL B / MFG</div><div class="shape"></div><h3>Manufacturing</h3><p>Manufacturing Processes · Conventional Manufacturing Concepts · Production-oriented Design Concepts · Manufacturing Workflow Understanding</p></div>
+<div class="drawing"><div class="num">DETAIL C / AM</div><div class="shape"></div><h3>Additive Manufacturing</h3><p>FDM · SLA · Model Orientation · Support Structures · Build-Plate Adhesion · Infill Selection · Print Quality · Machine Operation · Filament Handling</p></div>
+<div class="drawing"><div class="num">DETAIL D / DIGITAL</div><div class="shape"></div><h3>Programming &amp; Digital Tools</h3><p>C Programming · Python · Git · GitHub · Technical Documentation</p></div>
+</div></section>
+
+<section><div class="eyebrow">DWG-11-005 / REVISION HISTORY</div><h2 class="heading">Field <span>Records</span></h2><div class="experience">
+<div class="job"><div class="date">REV. 01 / 28 JUL — 13 AUG 2026</div><h3>Precision Engineering Technology Centre</h3><h4>ADDITIVE MANUFACTURING INTERNSHIP</h4><p>Gained practical exposure to FDM and SLA additive manufacturing workflows, including model preparation, orientation, support generation, build-plate adhesion, infill selection, print-quality considerations, machine operation and filament handling.</p><p>Software: Fracktory · Bambu Studio · Voxeldance Tango</p></div>
+<div class="job"><div class="date">REV. 00 / 09 JUN — 25 JUN 2026</div><h3>Switching Technologies Gunther Limited</h3><h4>INDUSTRIAL INTERNSHIP</h4><p>Gained industrial exposure to engineering and manufacturing practices in a professional production environment, developing an understanding of workplace procedures, manufacturing operations and practical engineering applications.</p></div>
+</div></section>
+
+<section><div class="eyebrow">DWG-11-006 / SYMBOL LEGEND</div><h2 class="heading">Activity <span>Legend</span></h2><div class="legend">
+<div class="legend-item"><b>SYM-01</b><h3>IEEE Xtreme</h3><p>Programming competitions</p></div>
+<div class="legend-item"><b>SYM-02</b><h3>NPTEL</h3><p>Courses and certifications</p></div>
+<div class="legend-item"><b>SYM-03</b><h3>Skillrack</h3><p>Programming practice</p></div>
+<div class="legend-item"><b>SYM-04</b><h3>SWAYAM</h3><p>Technical learning</p></div>
+</div></section>
+
+<section><div class="eyebrow">DWG-11-007 / FUTURE REVISION</div><h2 class="heading">Next <span>Revision</span></h2><div class="future">
+<div><span>PLANNED</span><h3>Advanced CAD &amp; Mechanical Design</h3></div><div><span>PLANNED</span><h3>Manufacturing &amp; Production Knowledge</h3></div><div><span>PLANNED</span><h3>Additive Manufacturing</h3></div><div><span>PLANNED</span><h3>Engineering Software</h3></div><div><span>PLANNED</span><h3>Programming &amp; Automation</h3></div><div><span>PLANNED</span><h3>Practical Engineering Projects</h3></div>
+</div></section>
+</main>
+</div>
+
+<section class="contact" id="contact"><div class="sheet"><div class="eyebrow">DWG-11-008 / CONTACT BLOCK</div><h2 class="heading">Open <span>Line</span></h2><div class="contact-grid"><div><p>Engineering, technical and professional correspondence.</p></div><div class="links">
+<a href="mailto:sit24me031@sairamtap.edu.in">EMAIL — sit24me031@sairamtap.edu.in</a>
+<a href="https://github.com/Harry13181" target="_blank" rel="noopener">GITHUB — Harry13181</a>
+<a href="https://linkedin.com/in/hari-prasath-p-bb4b11404" target="_blank" rel="noopener">LINKEDIN — HariPrasath P</a>
+<a href="https://harry13181.github.io/Portfolio/" target="_blank" rel="noopener">PORTFOLIO — GitHub Pages</a>
+</div></div><div class="footer"><span>ENGINEERING DRAWING / DESIGN 11</span><span>© 2026 HARI PRASATH P</span></div></div></section>
+</body>
+</html>

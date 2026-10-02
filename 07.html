@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1.0">
+<title>HariPrasath P | Design 07 — Industrial Control</title>
+<style>
+:root{--bg:#111411;--panel:#181c18;--line:#30372f;--text:#d8ddd2;--muted:#899286;--lime:#b7d84b;--amber:#d6a846;--red:#d85b4c}
+*{box-sizing:border-box}html{scroll-behavior:smooth}body{margin:0;background:var(--bg);color:var(--text);font-family:"Courier New",monospace}
+body:before{content:"";position:fixed;inset:0;pointer-events:none;background:linear-gradient(rgba(255,255,255,.015) 50%,transparent 50%);background-size:100% 4px;z-index:20;opacity:.25}
+a{color:inherit;text-decoration:none}
+.boot{position:fixed;inset:0;background:#0b0e0b;z-index:99;padding:8vh 8%;display:flex;align-items:center;animation:bootout .8s ease 4.8s forwards}.boot pre{margin:0;color:var(--lime);font-size:clamp(10px,1.5vw,15px);line-height:1.65;white-space:pre-wrap}.cursor{display:inline-block;width:9px;height:16px;background:var(--lime);animation:blink .7s steps(1) infinite;vertical-align:middle}
+@keyframes blink{50%{opacity:0}}@keyframes bootout{to{opacity:0;visibility:hidden;transform:scale(1.04)}}
+.shell{width:min(1240px,92%);margin:auto}.bar{height:72px;border-bottom:1px solid var(--line);display:flex;align-items:center;justify-content:space-between}.brand{color:var(--lime);font-weight:bold}.status{display:flex;gap:20px;font-size:10px;color:var(--muted)}.online{color:var(--lime)}.nav{display:flex;gap:18px;font-size:10px;color:var(--muted)}.nav a:hover{color:var(--lime)}
+.hero{min-height:calc(100vh - 72px);display:grid;grid-template-columns:1.2fr .8fr;gap:50px;align-items:center}.hero .tag{color:var(--lime);font-size:11px}.hero h1{font-family:Arial,sans-serif;font-size:clamp(4rem,11vw,10rem);line-height:.8;letter-spacing:-.08em;margin:20px 0}.hero h1 span{display:block;color:var(--lime)}.hero p{max-width:620px;color:var(--muted);line-height:1.7}.monitor{border:1px solid var(--line);background:var(--panel);padding:20px;box-shadow:0 0 0 1px #090b09 inset}.monitor-head{display:flex;justify-content:space-between;border-bottom:1px solid var(--line);padding-bottom:12px;color:var(--muted);font-size:10px}.graph{height:230px;position:relative;margin:25px 0;background:repeating-linear-gradient(0deg,transparent 0 45px,var(--line) 46px),repeating-linear-gradient(90deg,transparent 0 65px,var(--line) 66px);overflow:hidden}.graph svg{position:absolute;width:100%;height:100%;inset:0}.readouts{display:grid;grid-template-columns:1fr 1fr;gap:10px}.readout{border:1px solid var(--line);padding:13px}.readout small{display:block;color:var(--muted);font-size:8px}.readout b{display:block;color:var(--lime);font-size:20px;margin-top:5px}
+section{border-top:1px solid var(--line);padding:105px 0}.sectionline{display:flex;justify-content:space-between;align-items:end;margin-bottom:55px}.sectionline small{color:var(--lime);font-size:10px}.sectionline h2{font-family:Arial,sans-serif;font-size:clamp(3rem,8vw,7rem);line-height:.8;letter-spacing:-.08em;margin:0;text-transform:uppercase}
+.about{display:grid;grid-template-columns:1fr 1fr;gap:40px}.panel{border:1px solid var(--line);background:var(--panel);padding:28px}.panel .label{font-size:9px;color:var(--lime);margin-bottom:25px}.panel p{color:var(--muted);line-height:1.7}.panel .lead{color:var(--text);font-size:22px;line-height:1.35}
+.data{display:grid;grid-template-columns:repeat(4,1fr);border:1px solid var(--line)}.data-cell{padding:24px;border-right:1px solid var(--line);min-height:150px}.data-cell:last-child{border-right:0}.data-cell small{color:var(--muted);font-size:8px}.data-cell strong{display:block;color:var(--lime);font-size:18px;margin-top:25px}
+.skills{display:grid;grid-template-columns:1fr 1fr;gap:1px;background:var(--line);border:1px solid var(--line)}.skill{background:var(--panel);padding:25px;min-height:210px}.skill-top{display:flex;justify-content:space-between;color:var(--lime);font-size:10px}.skill h3{font-family:Arial,sans-serif;font-size:26px;margin:45px 0 12px}.skill p{color:var(--muted);font-size:13px;line-height:1.6}
+.jobs{border-top:1px solid var(--line)}.job{display:grid;grid-template-columns:80px 1fr 170px;gap:30px;padding:30px 0;border-bottom:1px solid var(--line)}.job-id{color:var(--lime);font-size:11px}.job h3{font-family:Arial,sans-serif;font-size:clamp(2rem,4vw,4rem);line-height:.9;margin:0;letter-spacing:-.06em}.job h4{font-size:10px;color:var(--amber);margin:18px 0;text-transform:uppercase}.job p{color:var(--muted);line-height:1.6;max-width:760px}.date{text-align:right;color:var(--muted);font-size:9px}.chips{display:flex;gap:8px;flex-wrap:wrap}.chips span{border:1px solid var(--line);padding:6px 8px;color:var(--lime);font-size:9px}
+.log{border:1px solid var(--line);background:#0d100d}.logrow{display:grid;grid-template-columns:80px 100px 1fr;padding:15px;border-bottom:1px solid var(--line);font-size:11px}.logrow:last-child{border-bottom:0}.logrow span:nth-child(1){color:var(--muted)}.logrow span:nth-child(2){color:var(--amber)}.logrow span:nth-child(3){color:var(--text)}
+.road{display:grid;grid-template-columns:1fr 2fr;border-top:1px solid var(--line)}.roaditem{padding:25px 0;border-bottom:1px solid var(--line)}.roaditem:nth-child(odd){padding-right:30px;border-right:1px solid var(--line)}.roaditem:nth-child(even){padding-left:30px}.roaditem b{color:var(--lime);font-size:10px}.roaditem h3{font-family:Arial,sans-serif;font-size:25px;margin:15px 0}.roaditem p{color:var(--muted);font-size:12px}
+.contact{background:#0b0e0b}.contact-grid{display:grid;grid-template-columns:1.4fr .6fr;gap:70px}.contact h2{font-family:Arial,sans-serif;font-size:clamp(4rem,12vw,11rem);line-height:.72;letter-spacing:-.09em;margin:0}.contact h2 span{color:var(--lime)}.links a{display:block;padding:18px 0;border-bottom:1px solid var(--line);font-size:11px;color:var(--muted)}.links a:hover{color:var(--lime)}.foot{display:flex;justify-content:space-between;border-top:1px solid var(--line);margin-top:100px;padding-top:15px;color:#596058;font-size:9px}
+@media(max-width:800px){.shell{width:88%}.status{display:none}.nav{display:none}.hero{grid-template-columns:1fr;padding:80px 0}.about,.data,.skills,.contact-grid{grid-template-columns:1fr}.data-cell{border-right:0;border-bottom:1px solid var(--line)}.data-cell:last-child{border-bottom:0}.job{grid-template-columns:45px 1fr}.date{display:none}.road{grid-template-columns:1fr}.roaditem:nth-child(odd){padding-right:0;border-right:0}.roaditem:nth-child(even){padding-left:0}.foot{flex-direction:column;gap:10px}}
+@media(prefers-reduced-motion:reduce){*,*:before,*:after{animation:none!important}}
+</style>
+</head>
+<body>
+
+<div class="boot">
+<pre>HARI ENGINEERING CONTROL SYSTEM
+--------------------------------
+INITIALIZING PORTFOLIO NODE 07...
+[OK] PROFILE DATABASE
+[OK] CAD MODULE
+[OK] MANUFACTURING MODULE
+[OK] ADDITIVE MANUFACTURING MODULE
+[OK] EXPERIENCE RECORDS
+[OK] CONTACT CHANNELS
+
+SYSTEM STATUS: ONLINE
+USER: HARI PRASATH P
+ACCESS: PUBLIC
+
+<span class="cursor"></span></pre>
+</div>
+
+<div class="shell">
+<header class="bar">
+<a class="brand" href="#top">HP_CONTROL // 07</a>
+<div class="status"><span class="online">● ONLINE</span><span>NODE: INDIA</span><span>MODE: ENGINEERING</span></div>
+<nav class="nav"><a href="#about">ABOUT</a><a href="#skills">SKILLS</a><a href="#experience">FIELD</a><a href="#contact">CONTACT</a></nav>
+</header>
+
+<main id="top">
+<section class="hero" style="border-top:0">
+<div><div class="tag">>> IDENTITY MODULE / ACTIVE</div><h1>HariPrasath<span>P</span></h1><p>Mechanical Engineering Student focused on CAD &amp; Mechanical Design, Manufacturing and Additive Manufacturing.</p></div>
+<div class="monitor">
+<div class="monitor-head"><span>ENGINEERING_ACTIVITY.SYS</span><span>LIVE</span></div>
+<div class="graph">
+<svg viewBox="0 0 500 230" preserveAspectRatio="none"><polyline points="0,190 50,170 90,180 140,120 185,145 225,80 270,105 320,60 360,90 410,45 455,72 500,25" fill="none" stroke="#b7d84b" stroke-width="2"/></svg>
+</div>
+<div class="readouts"><div class="readout"><small>YEAR</small><b>03</b></div><div class="readout"><small>PERIOD</small><b>2024–28</b></div><div class="readout"><small>CAD</small><b>INT.</b></div><div class="readout"><small>AM</small><b>FDM/SLA</b></div></div>
+</div>
+</section>
+
+<section id="about"><div class="sectionline"><small>01 / PROFILE</small><h2>System<br>Profile</h2></div>
+<div class="about"><div class="panel"><div class="label">PROFILE.DAT</div><p class="lead">I am a B.E. Mechanical Engineering student at Sri Sairam Institute of Technology, with an interest in mechanical design, CAD, manufacturing processes and additive manufacturing.</p></div>
+<div class="panel"><div class="label">MISSION.LOG</div><p>My technical interests combine engineering design, manufacturing knowledge, CAD modelling, technical drawing and practical experimentation.</p><p>I am continuously developing my skills through academic projects, internships, technical learning and hands-on engineering work.</p></div></div></section>
+
+<section><div class="sectionline"><small>02 / EDUCATION</small><h2>Core<br>Data</h2></div>
+<div class="data"><div class="data-cell"><small>DEGREE</small><strong>B.E. MECHANICAL ENGINEERING</strong></div><div class="data-cell"><small>INSTITUTION</small><strong>SRI SAIRAM INSTITUTE OF TECHNOLOGY</strong></div><div class="data-cell"><small>PERIOD</small><strong>2024 — 2028</strong></div><div class="data-cell"><small>STATUS</small><strong>3RD YEAR</strong></div></div></section>
+
+<section id="skills"><div class="sectionline"><small>03 / CAPABILITY</small><h2>Installed<br>Modules</h2></div>
+<div class="skills">
+<div class="skill"><div class="skill-top"><span>MOD-01</span><span>ACTIVE</span></div><h3>CAD &amp; Mechanical Design</h3><p>SOLIDWORKS — Intermediate · AutoCAD — Intermediate · Engineering Drawing · Machine Drawing · Mechanical Design · 2D CAD Drafting</p></div>
+<div class="skill"><div class="skill-top"><span>MOD-02</span><span>ACTIVE</span></div><h3>Manufacturing</h3><p>Manufacturing Processes · Conventional Manufacturing Concepts · Production-oriented Design Concepts · Manufacturing Workflow Understanding</p></div>
+<div class="skill"><div class="skill-top"><span>MOD-03</span><span>ACTIVE</span></div><h3>Additive Manufacturing</h3><p>FDM · SLA · Model Orientation · Support Structures · Build-Plate Adhesion · Infill Selection · Print Quality · Machine Operation · Filament Handling</p></div>
+<div class="skill"><div class="skill-top"><span>MOD-04</span><span>ACTIVE</span></div><h3>Programming &amp; Digital Tools</h3><p>C Programming · Python · Git · GitHub · Technical Documentation</p></div>
+</div></section>
+
+<section id="experience"><div class="sectionline"><small>04 / FIELD RECORDS</small><h2>Deployment<br>History</h2></div>
+<div class="jobs">
+<article class="job"><div class="job-id">JOB-01</div><div><h3>Precision Engineering Technology Centre</h3><h4>ADDITIVE MANUFACTURING INTERNSHIP</h4><p>Gained practical exposure to FDM and SLA additive manufacturing workflows, including model preparation, orientation, support generation, build-plate adhesion, infill selection, print-quality considerations, machine operation and filament handling.</p><div class="chips"><span>Fracktory</span><span>Bambu Studio</span><span>Voxeldance Tango</span></div></div><div class="date">28 JUL — 13 AUG<br>2026</div></article>
+<article class="job"><div class="job-id">JOB-02</div><div><h3>Switching Technologies Gunther Limited</h3><h4>INDUSTRIAL INTERNSHIP</h4><p>Gained industrial exposure to engineering and manufacturing practices in a professional production environment, developing an understanding of workplace procedures, manufacturing operations and practical engineering applications.</p></div><div class="date">09 JUN — 25 JUN<br>2026</div></article>
+</div></section>
+
+<section><div class="sectionline"><small>05 / ACTIVITY LOG</small><h2>System<br>Logs</h2></div>
+<div class="log">
+<div class="logrow"><span>LOG-01</span><span>IEEE</span><span>Participated in IEEE Xtreme programming competitions.</span></div>
+<div class="logrow"><span>LOG-02</span><span>NPTEL</span><span>Completed multiple NPTEL courses and certifications.</span></div>
+<div class="logrow"><span>LOG-03</span><span>SKILLRACK</span><span>Practiced programming through Skillrack.</span></div>
+<div class="logrow"><span>LOG-04</span><span>SWAYAM</span><span>Continued technical learning through SWAYAM.</span></div>
+<div class="logrow"><span>LOG-05</span><span>CAD</span><span>Developed CAD-based mechanical drawing work.</span></div>
+<div class="logrow"><span>LOG-06</span><span>AM</span><span>Gained hands-on exposure to additive manufacturing.</span></div>
+</div></section>
+
+<section><div class="sectionline"><small>06 / ROADMAP</small><h2>Next<br>Modules</h2></div>
+<div class="road">
+<div class="roaditem"><b>ROAD-01</b><h3>Advanced CAD &amp; Mechanical Design</h3><p>Development target</p></div>
+<div class="roaditem"><b>ROAD-02</b><h3>Manufacturing &amp; Production Knowledge</h3><p>Development target</p></div>
+<div class="roaditem"><b>ROAD-03</b><h3>Additive Manufacturing</h3><p>Development target</p></div>
+<div class="roaditem"><b>ROAD-04</b><h3>Engineering Software</h3><p>Development target</p></div>
+<div class="roaditem"><b>ROAD-05</b><h3>Programming &amp; Automation</h3><p>Development target</p></div>
+<div class="roaditem"><b>ROAD-06</b><h3>Practical Engineering Projects</h3><p>Development target</p></div>
+</div></section>
+</main>
+</div>
+
+<section class="contact" id="contact"><div class="shell"><div class="sectionline"><small>07 / COMMUNICATION</small><h2>Open<br>Channel</h2></div>
+<div class="contact-grid"><div><p style="color:var(--muted)">For engineering, technical or professional conversations, connect through the channels below.</p></div><div class="links">
+<a href="mailto:sit24me031@sairamtap.edu.in">MAIL:// sit24me031@sairamtap.edu.in</a>
+<a href="https://github.com/Harry13181" target="_blank" rel="noopener">GITHUB:// Harry13181</a>
+<a href="https://linkedin.com/in/hari-prasath-p-bb4b11404" target="_blank" rel="noopener">LINKEDIN:// HariPrasath P</a>
+<a href="https://harry13181.github.io/Portfolio/" target="_blank" rel="noopener">WEB:// GitHub Pages</a>
+</div></div>
+<div class="foot"><span>INDUSTRIAL CONTROL / DESIGN 07</span><span>© 2026 HARI PRASATH P</span></div>
+</div></section>
+</body>
+</html>

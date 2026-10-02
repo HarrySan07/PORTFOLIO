@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1.0">
+<title>HariPrasath P | Design 15 — Mechanical Journal</title>
+<style>
+:root{--paper:#f4eedf;--ink:#20201d;--muted:#716d63;--red:#9d3d2e;--blue:#314f68;--line:#b9b09f;--dark:#252521}
+*{box-sizing:border-box}html{scroll-behavior:smooth}body{margin:0;background:var(--paper);color:var(--ink);font-family:Georgia,"Times New Roman",serif}
+body:before{content:"";position:fixed;inset:0;pointer-events:none;opacity:.18;background-image:radial-gradient(#6f6759 .5px,transparent .7px);background-size:5px 5px;z-index:90}a{text-decoration:none;color:inherit}
+.cover{position:fixed;inset:0;background:var(--paper);z-index:100;display:grid;place-items:center;animation:coverout 1s 4.8s forwards}.cover-inner{width:min(920px,84vw);height:min(610px,78vh);border:2px solid var(--ink);position:relative;padding:45px;display:flex;flex-direction:column;justify-content:space-between;background:var(--paper);box-shadow:14px 14px 0 var(--line)}.cover-inner:before{content:"";position:absolute;inset:14px;border:1px solid var(--line);pointer-events:none}.cover small{font:10px "Courier New",monospace;letter-spacing:.18em}.cover h1{font-size:clamp(4rem,10vw,10rem);line-height:.72;letter-spacing:-.1em;margin:0;transform:translateY(35px);opacity:0;animation:rise 1s .5s forwards}.cover h1 span{color:var(--red)}.cover .stamp{align-self:flex-end;border:2px solid var(--red);color:var(--red);padding:10px 15px;font:bold 10px "Courier New",monospace;transform:rotate(-7deg);opacity:0;animation:stamp .5s 2.3s forwards}.cover .sketch{position:absolute;right:9%;top:20%;width:190px;height:150px;border:1px solid var(--blue);opacity:0;animation:fade 1s 1.5s forwards}.cover .sketch:before{content:"";position:absolute;left:20%;top:25%;width:60%;height:45%;border:2px solid var(--blue);transform:skewY(-15deg)}.cover .sketch:after{content:"A-01";position:absolute;bottom:8px;right:10px;font:9px "Courier New",monospace;color:var(--blue)}@keyframes rise{to{transform:translateY(0);opacity:1}}@keyframes stamp{to{opacity:1}}@keyframes fade{to{opacity:.8}}@keyframes coverout{to{opacity:0;visibility:hidden;pointer-events:none}}
+.page{width:min(1120px,90%);margin:auto}.masthead{height:92px;border-bottom:3px double var(--ink);display:flex;align-items:center;justify-content:space-between;position:sticky;top:0;background:rgba(244,238,223,.95);z-index:50}.title{font-weight:bold;font-size:15px}.edition{font:9px "Courier New",monospace;color:var(--red)}.nav{display:flex;gap:18px;font:9px "Courier New",monospace}.nav a:hover{color:var(--red)}
+.hero{min-height:90vh;padding:90px 0 110px;display:grid;grid-template-columns:1fr 340px;gap:70px;align-items:center;border-bottom:1px solid var(--line)}.kicker{font:10px "Courier New",monospace;color:var(--red);letter-spacing:.18em}.hero h2{font-size:clamp(5rem,12vw,12rem);line-height:.66;letter-spacing:-.1em;margin:30px 0}.hero h2 em{color:var(--blue);font-style:normal}.hero .lead{font-size:18px;line-height:1.35;max-width:700px}.figure{height:440px;border:1px solid var(--ink);position:relative;background:#eee6d4}.figure:before{content:"FIG. 01";position:absolute;top:14px;left:14px;font:9px "Courier New",monospace;color:var(--red)}.figure .shaft{position:absolute;width:68%;height:12px;background:var(--blue);top:45%;left:16%;transform:rotate(-7deg)}.figure .block{position:absolute;width:100px;height:100px;border:3px solid var(--ink);top:30%;left:28%;transform:rotate(-7deg);background:var(--paper)}.figure .hole{position:absolute;width:30px;height:30px;border:2px solid var(--red);border-radius:50%;top:34%;left:43%}.figure .dim1{position:absolute;left:16%;right:16%;top:62%;height:1px;background:var(--red)}.figure .dim1:before,.figure .dim1:after{content:"";position:absolute;height:12px;width:1px;background:var(--red);top:-6px}.figure .dim1:before{left:0}.figure .dim1:after{right:0}.figure .note{position:absolute;bottom:16px;left:16px;right:16px;font:9px "Courier New",monospace;color:var(--muted);line-height:1.5}
+section{padding:95px 0;border-bottom:1px solid var(--line)}.sectionhead{display:flex;justify-content:space-between;align-items:baseline;border-bottom:3px double var(--ink);padding-bottom:13px;margin-bottom:45px}.sectionhead h2{font-size:clamp(3rem,7vw,7rem);letter-spacing:-.08em;line-height:.75;margin:0}.sectionhead span{font:9px "Courier New",monospace;color:var(--red)}
+.columns{columns:2;column-gap:70px}.columns p{font-size:16px;line-height:1.65;margin-top:0}.dropcap:first-letter{font-size:72px;float:left;line-height:.7;padding:9px 10px 0 0;color:var(--red)}
+.notegrid{display:grid;grid-template-columns:repeat(3,1fr);gap:1px;background:var(--line);border:1px solid var(--line)}.note{background:var(--paper);padding:26px;min-height:300px;position:relative}.note:nth-child(2){background:#eee6d4}.note:nth-child(3){background:#e7e9e4}.note b{font:9px "Courier New",monospace;color:var(--red)}.note h3{font-size:34px;line-height:.78;letter-spacing:-.07em;margin-top:85px}.note p{font-size:13px;line-height:1.5;color:var(--muted)}
+.entry{display:grid;grid-template-columns:145px 1fr;gap:35px;border-bottom:1px solid var(--line);padding:30px 0}.entry:first-child{border-top:1px solid var(--line)}.entry .date{font:10px "Courier New",monospace;color:var(--red);line-height:1.5}.entry h3{font-size:clamp(2rem,5vw,5rem);line-height:.75;letter-spacing:-.08em;margin:0 0 17px}.entry h4{font:10px "Courier New",monospace;color:var(--blue);letter-spacing:.12em;margin:0 0 18px}.entry p{font-size:14px;line-height:1.65;max-width:780px;margin:8px 0}
+.activities{display:grid;grid-template-columns:1fr 1fr;gap:30px}.activity{border-top:3px solid var(--ink);padding:18px 0;display:grid;grid-template-columns:50px 1fr;gap:15px}.activity b{font:10px "Courier New",monospace;color:var(--red)}.activity h3{margin:0;font-size:22px}.activity p{margin:8px 0 0;color:var(--muted);font-size:13px;line-height:1.5}
+.roadmap{display:flex;align-items:stretch}.roadmap .step{flex:1;border:1px solid var(--ink);padding:20px;min-height:180px;position:relative}.roadmap .step:not(:last-child){border-right:0}.roadmap .step:nth-child(even){background:#e7e9e4}.roadmap b{font:9px "Courier New",monospace;color:var(--red)}.roadmap h3{font-size:24px;line-height:.8;letter-spacing:-.06em;position:absolute;bottom:18px;left:20px;right:15px}
+.contact{background:var(--dark);color:var(--paper);border:0}.contact .sectionhead{border-color:#77766f}.contact .sectionhead h2{color:var(--paper)}.contact .sectionhead span{color:#d4a940}.contactgrid{display:grid;grid-template-columns:1fr 1fr;gap:70px}.contact p{color:#bbb8ad;line-height:1.7}.links a{display:block;border-bottom:1px solid #5c5d57;padding:17px 0;font:10px "Courier New",monospace}.links a:hover{color:#d4a940}.footer{margin-top:80px;border-top:1px solid #5c5d57;padding-top:14px;display:flex;justify-content:space-between;font:9px "Courier New",monospace;color:#8f8e86}
+@media(max-width:800px){.page{width:88%}.nav{display:none}.hero{grid-template-columns:1fr;padding:70px 0}.figure{height:350px}.columns{columns:1}.notegrid{grid-template-columns:1fr}.entry{grid-template-columns:1fr;gap:10px}.activities{grid-template-columns:1fr}.roadmap{display:grid;grid-template-columns:1fr 1fr}.roadmap .step:not(:last-child){border-right:1px solid var(--ink)}.roadmap .step:nth-child(odd){border-right:0}.contactgrid{grid-template-columns:1fr}.footer{flex-direction:column;gap:10px}}
+@media(max-width:500px){.cover-inner{padding:25px}.cover .sketch{display:none}.hero h2{font-size:4.6rem}.roadmap{grid-template-columns:1fr}.roadmap .step,.roadmap .step:not(:last-child){border-right:1px solid var(--ink)}}
+@media(prefers-reduced-motion:reduce){*,*:before,*:after{animation:none!important}}
+</style>
+</head>
+<body>
+
+<div class="cover"><div class="cover-inner"><small>ENGINEERING NOTEBOOK / PERSONAL ARCHIVE / 2026</small><h1>HARI<br>PRASATH <span>P.</span></h1><div class="sketch"></div><div class="stamp">DESIGN 15 / FIELD EDITION</div><small>MECHANICAL ENGINEERING · CAD · MANUFACTURING · ADDITIVE MANUFACTURING</small></div></div>
+
+<div class="page">
+<header class="masthead"><a class="title" href="#top">THE HARI PRASATH JOURNAL</a><span class="edition">VOL. 15 / ENGINEERING EDITION</span><nav class="nav"><a href="#about">ABOUT</a><a href="#skills">SKILLS</a><a href="#experience">FIELD NOTES</a><a href="#contact">CONTACT</a></nav></header>
+
+<main id="top">
+<section class="hero" style="border-top:0"><div><div class="kicker">PERSONAL ENGINEERING ARCHIVE / ISSUE 15</div><h2>HARI<br>PRASATH<br><em>P.</em></h2><p class="lead">Mechanical Engineering Student | CAD &amp; Mechanical Design | Manufacturing | Additive Manufacturing</p></div><figure class="figure"><div class="shaft"></div><div class="block"></div><div class="hole"></div><div class="dim1"></div><div class="note">FIG. 01 — ABSTRACT MECHANICAL STUDY<br>Design thinking: sketch → model → manufacture → test.</div></figure></section>
+
+<section id="about"><div class="sectionhead"><h2>Editor's Note</h2><span>01 / PROFILE</span></div><div class="columns"><p class="dropcap">I am a B.E. Mechanical Engineering student at Sri Sairam Institute of Technology, with an interest in mechanical design, CAD, manufacturing processes and additive manufacturing.</p><p>My technical interests combine engineering design, manufacturing knowledge, CAD modelling, technical drawing and practical experimentation.</p><p>I am continuously developing my skills through academic projects, internships, technical learning and hands-on engineering work.</p></div></section>
+
+<section id="skills"><div class="sectionhead"><h2>Field Kit</h2><span>02 / CAPABILITIES</span></div><div class="notegrid">
+<article class="note"><b>NOTE A / CAD</b><h3>CAD &amp; MECHANICAL DESIGN</h3><p>SOLIDWORKS — Intermediate · AutoCAD — Intermediate · Engineering Drawing · Machine Drawing · Mechanical Design · 2D CAD Drafting</p></article>
+<article class="note"><b>NOTE B / PRODUCTION</b><h3>MANUFACTURING</h3><p>Manufacturing Processes · Conventional Manufacturing Concepts · Production-oriented Design Concepts · Manufacturing Workflow Understanding</p></article>
+<article class="note"><b>NOTE C / PRINT</b><h3>ADDITIVE MANUFACTURING</h3><p>FDM · SLA · Model Orientation · Support Structures · Build-Plate Adhesion · Infill Selection · Print Quality · Machine Operation · Filament Handling</p></article>
+<article class="note"><b>NOTE D / DIGITAL</b><h3>PROGRAMMING &amp; DIGITAL TOOLS</h3><p>C Programming · Python · Git · GitHub · Technical Documentation</p></article>
+</div></section>
+
+<section id="experience"><div class="sectionhead"><h2>Field Notes</h2><span>03 / INTERNSHIPS</span></div>
+<article class="entry"><div class="date">28 JUL 2026<br>—<br>13 AUG 2026</div><div><h3>PRECISION ENGINEERING TECHNOLOGY CENTRE</h3><h4>ADDITIVE MANUFACTURING INTERNSHIP</h4><p>Gained practical exposure to FDM and SLA additive manufacturing workflows, including model preparation, orientation, support generation, build-plate adhesion, infill selection, print-quality considerations, machine operation and filament handling.</p><p>Software: Fracktory · Bambu Studio · Voxeldance Tango</p></div></article>
+<article class="entry"><div class="date">09 JUN 2026<br>—<br>25 JUN 2026</div><div><h3>SWITCHING TECHNOLOGIES GUNTHER LIMITED</h3><h4>INDUSTRIAL INTERNSHIP</h4><p>Gained industrial exposure to engineering and manufacturing practices in a professional production environment, developing an understanding of workplace procedures, manufacturing operations and practical engineering applications.</p></div></article>
+</section>
+
+<section><div class="sectionhead"><h2>Notebook</h2><span>04 / ACTIVITIES</span></div><div class="activities">
+<div class="activity"><b>01</b><div><h3>IEEE Xtreme</h3><p>Participated in programming competitions.</p></div></div>
+<div class="activity"><b>02</b><div><h3>NPTEL</h3><p>Completed multiple courses and certifications.</p></div></div>
+<div class="activity"><b>03</b><div><h3>Skillrack</h3><p>Practiced programming through coding problems.</p></div></div>
+<div class="activity"><b>04</b><div><h3>SWAYAM</h3><p>Continued technical learning through online coursework.</p></div></div>
+<div class="activity"><b>05</b><div><h3>CAD Drawings</h3><p>Developed CAD-based mechanical drawing projects.</p></div></div>
+<div class="activity"><b>06</b><div><h3>Additive Manufacturing</h3><p>Gained hands-on exposure to FDM and SLA workflows.</p></div></div>
+</div></section>
+
+<section><div class="sectionhead"><h2>Next Issue</h2><span>05 / DEVELOPMENT</span></div><div class="roadmap">
+<div class="step"><b>01</b><h3>Advanced CAD &amp; Mechanical Design</h3></div><div class="step"><b>02</b><h3>Manufacturing &amp; Production Knowledge</h3></div><div class="step"><b>03</b><h3>Additive Manufacturing</h3></div><div class="step"><b>04</b><h3>Engineering Software</h3></div><div class="step"><b>05</b><h3>Programming &amp; Automation</h3></div><div class="step"><b>06</b><h3>Practical Engineering Projects</h3></div>
+</div></section>
+</main>
+</div>
+
+<section class="contact" id="contact"><div class="page"><div class="sectionhead"><h2>Correspondence</h2><span>06 / CONTACT</span></div><div class="contactgrid"><div><p>Engineering, technical and professional communication channels.</p></div><div class="links">
+<a href="mailto:sit24me031@sairamtap.edu.in">EMAIL → sit24me031@sairamtap.edu.in</a>
+<a href="https://github.com/Harry13181" target="_blank" rel="noopener">GITHUB → Harry13181</a>
+<a href="https://linkedin.com/in/hari-prasath-p-bb4b11404" target="_blank" rel="noopener">LINKEDIN → HariPrasath P</a>
+<a href="https://harry13181.github.io/Portfolio/" target="_blank" rel="noopener">PORTFOLIO → GitHub Pages</a>
+</div></div><div class="footer"><span>MECHANICAL JOURNAL / DESIGN 15</span><span>© 2026 HARI PRASATH P</span></div></div></section>
+</body>
+</html>

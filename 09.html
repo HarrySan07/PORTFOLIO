@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1.0">
+<title>HariPrasath P | Design 09 — Kinetic Poster</title>
+<style>
+:root{--bg:#f1efe8;--ink:#111;--acid:#d9ff38;--pink:#ff4f87;--blue:#3155ff;--line:#111}
+*{box-sizing:border-box}html{scroll-behavior:smooth}body{margin:0;background:var(--bg);color:var(--ink);font-family:Arial,Helvetica,sans-serif;overflow-x:hidden}a{color:inherit;text-decoration:none}
+.intro{position:fixed;inset:0;background:var(--ink);color:#fff;z-index:99;display:flex;align-items:center;justify-content:center;overflow:hidden;animation:hide .5s 4.2s forwards}.introword{font-size:clamp(5rem,18vw,17rem);font-weight:900;letter-spacing:-.12em;position:relative;z-index:2;animation:slam 1s cubic-bezier(.16,1,.3,1) .3s both}.introword:after{content:"09";position:absolute;left:20%;top:-25%;font-size:45vw;color:var(--acid);z-index:-1;opacity:.9;transform:rotate(-8deg);animation:spin .9s ease .9s both}.flash{position:absolute;width:35vw;height:35vw;background:var(--pink);border-radius:50%;right:-8vw;bottom:-8vw;animation:orb 1.4s cubic-bezier(.16,1,.3,1) .7s both}@keyframes slam{from{transform:scale(5) rotate(12deg);opacity:0}to{transform:scale(1) rotate(0);opacity:1}}@keyframes spin{from{transform:rotate(-30deg) scale(0)}to{transform:rotate(-8deg) scale(1)}}@keyframes orb{from{transform:scale(0)}to{transform:scale(1)}}@keyframes hide{to{visibility:hidden;opacity:0}}
+.wrap{width:min(1280px,94%);margin:auto}.top{height:74px;border-bottom:2px solid var(--ink);display:flex;justify-content:space-between;align-items:center;font-weight:900;font-size:11px}.nav{display:flex;gap:18px}.nav a:hover{background:var(--acid)}
+.hero{min-height:calc(100vh - 74px);position:relative;display:flex;align-items:center;border-bottom:2px solid var(--ink);overflow:hidden}.hero h1{font-size:clamp(5rem,18vw,18rem);line-height:.7;letter-spacing:-.13em;margin:0;font-weight:900;position:relative;z-index:2}.hero h1 span{display:block;-webkit-text-stroke:3px var(--ink);color:transparent}.shape{position:absolute;width:35vw;height:35vw;background:var(--acid);border:2px solid var(--ink);right:5%;top:12%;transform:rotate(18deg);animation:float 5s ease-in-out infinite}.shape:after{content:"ME";position:absolute;font-size:12vw;font-weight:900;left:12%;top:22%;transform:rotate(-18deg)}@keyframes float{50%{transform:rotate(12deg) translateY(-18px)}}.hero-meta{position:absolute;right:0;bottom:30px;width:320px;font-size:12px;line-height:1.5}.hero-meta b{display:block;font-size:10px;margin-bottom:10px}
+section{padding:110px 0;border-bottom:2px solid var(--ink)}.label{font-size:10px;font-weight:900;letter-spacing:.15em}.section-title{font-size:clamp(4rem,11vw,11rem);line-height:.72;letter-spacing:-.12em;margin:25px 0 70px;font-weight:900;text-transform:uppercase}.section-title em{font-style:normal;color:var(--blue)}
+.about{display:grid;grid-template-columns:1fr 1fr;gap:60px}.about .big{font-size:clamp(1.8rem,4vw,4rem);font-weight:900;line-height:1}.about p{font-size:15px;line-height:1.6;max-width:600px}
+.stickers{display:grid;grid-template-columns:repeat(4,1fr);gap:15px}.sticker{min-height:230px;border:2px solid var(--ink);padding:18px;position:relative;overflow:hidden}.sticker:nth-child(1){background:var(--acid);transform:rotate(-2deg)}.sticker:nth-child(2){background:var(--pink);transform:rotate(2deg)}.sticker:nth-child(3){background:var(--blue);color:#fff;transform:rotate(-1deg)}.sticker:nth-child(4){background:#fff;transform:rotate(3deg)}.sticker b{font-size:10px}.sticker h3{font-size:30px;line-height:.9;letter-spacing:-.06em;margin:70px 0 8px}.sticker p{font-size:11px;line-height:1.4}
+.skills{display:grid;grid-template-columns:repeat(2,1fr);gap:0;border:2px solid var(--ink)}.skill{padding:28px;border-bottom:2px solid var(--ink);min-height:240px}.skill:nth-child(odd){border-right:2px solid var(--ink)}.skill:nth-last-child(-n+2){border-bottom:0}.skill .num{font-size:11px;font-weight:900}.skill h3{font-size:clamp(2rem,4vw,4rem);letter-spacing:-.08em;line-height:.8;margin:60px 0 15px}.skill p{font-size:12px;line-height:1.5;max-width:500px}
+.experience{display:grid;gap:25px}.job{border:2px solid var(--ink);padding:28px;display:grid;grid-template-columns:100px 1fr 180px;min-height:300px;position:relative;overflow:hidden}.job:before{content:"FIELD";position:absolute;right:-15px;bottom:-55px;font-size:13vw;font-weight:900;opacity:.07}.job-id{font-weight:900;color:var(--pink)}.job h3{font-size:clamp(2.5rem,6vw,6rem);line-height:.75;letter-spacing:-.1em;margin:0;max-width:850px}.job h4{font-size:10px;margin:25px 0;color:var(--blue)}.job p{max-width:760px;font-size:13px;line-height:1.55}.date{text-align:right;font-size:9px;font-weight:900}
+.marquee{border-top:2px solid var(--ink);border-bottom:2px solid var(--ink);overflow:hidden;white-space:nowrap;padding:12px 0;font-size:clamp(2rem,5vw,5rem);font-weight:900}.track{display:inline-block;animation:marquee 16s linear infinite}@keyframes marquee{to{transform:translateX(-50%)}}
+.records{display:grid;grid-template-columns:repeat(6,1fr);border:2px solid var(--ink)}.record{padding:20px;min-height:180px;border-right:2px solid var(--ink)}.record:last-child{border-right:0}.record b{font-size:9px}.record h3{font-size:23px;letter-spacing:-.05em;margin-top:55px}.record p{font-size:10px}
+.future{display:grid;grid-template-columns:1fr 1fr;gap:25px}.future-item{border:2px solid var(--ink);padding:22px;min-height:150px}.future-item:nth-child(odd){background:var(--acid)}.future-item:nth-child(even){background:#fff}.future-item span{float:right;font-size:9px}.future-item h3{font-size:25px;letter-spacing:-.05em;max-width:400px}
+.contact{background:var(--pink);padding:110px 0;border-bottom:0}.contact h2{font-size:clamp(5rem,17vw,17rem);line-height:.65;letter-spacing:-.13em;margin:0}.contact h2 span{color:#fff}.contact-grid{display:grid;grid-template-columns:1fr 1fr;gap:50px;margin-top:80px}.links a{display:block;border-bottom:2px solid var(--ink);padding:18px 0;font-size:11px;font-weight:900}.links a:hover{background:var(--acid)}.footer{display:flex;justify-content:space-between;border-top:2px solid var(--ink);margin-top:80px;padding-top:12px;font-size:9px;font-weight:900}
+@media(max-width:800px){.wrap{width:88%}.nav{display:none}.hero{min-height:90vh}.shape{width:65vw;height:65vw;right:-15%;top:20%}.hero-meta{position:relative;right:auto;bottom:auto;margin-top:80px;width:auto}.about,.contact-grid,.future{grid-template-columns:1fr}.stickers{grid-template-columns:1fr 1fr}.skills{grid-template-columns:1fr}.skill:nth-child(odd){border-right:0}.skill:nth-last-child(-n+2){border-bottom:2px solid var(--ink)}.skill:last-child{border-bottom:0}.job{grid-template-columns:45px 1fr}.date{display:none}.records{grid-template-columns:1fr 1fr}.record{border-bottom:2px solid var(--ink)}.record:nth-child(2n){border-right:0}.footer{flex-direction:column;gap:10px}}
+@media(prefers-reduced-motion:reduce){*,*:before,*:after{animation:none!important}}
+</style>
+</head>
+<body>
+
+<div class="intro"><div class="introword">GO!</div><div class="flash"></div></div>
+
+<div class="wrap">
+<header class="top"><a href="#top">HP / 09</a><div>MECHANICAL ENGINEERING — PORTFOLIO</div><nav class="nav"><a href="#about">ABOUT</a><a href="#skills">SKILLS</a><a href="#field">FIELD</a><a href="#contact">CONTACT</a></nav></header>
+
+<main id="top">
+<section class="hero" style="padding-top:0">
+<h1>HARI<br><span>PRASATH</span><br>P</h1><div class="shape"></div><div class="hero-meta"><b>MECHANICAL ENGINEERING STUDENT</b>CAD &amp; Mechanical Design / Manufacturing / Additive Manufacturing<br><br>03RD YEAR · 2024—2028</div>
+</section>
+
+<section id="about"><div class="label">01 / IDENTITY</div><h2 class="section-title">Built to<br><em>design.</em></h2><div class="about"><p class="big">I am a B.E. Mechanical Engineering student at Sri Sairam Institute of Technology, with an interest in mechanical design, CAD, manufacturing processes and additive manufacturing.</p><div><p>My technical interests combine engineering design, manufacturing knowledge, CAD modelling, technical drawing and practical experimentation.</p><p>I am continuously developing my skills through academic projects, internships, technical learning and hands-on engineering work.</p></div></div></section>
+
+<div class="marquee"><div class="track">CAD × MANUFACTURING × ADDITIVE MANUFACTURING × ENGINEERING × CAD × MANUFACTURING × ADDITIVE MANUFACTURING × ENGINEERING × </div></div>
+
+<section><div class="label">02 / FOUNDATION</div><h2 class="section-title">Core<br><em>system.</em></h2><div class="stickers">
+<div class="sticker"><b>EDU / 01</b><h3>B.E.<br>MECH.</h3><p>Mechanical Engineering</p></div>
+<div class="sticker"><b>EDU / 02</b><h3>SRI SAIRAM</h3><p>Institute of Technology</p></div>
+<div class="sticker"><b>EDU / 03</b><h3>2024—28</h3><p>Current status: 3rd Year</p></div>
+<div class="sticker"><b>EDU / 04</b><h3>DESIGN</h3><p>Engineering design + practical experimentation</p></div>
+</div></section>
+
+<section id="skills"><div class="label">03 / TOOLKIT</div><h2 class="section-title">Things I<br><em>work with.</em></h2><div class="skills">
+<div class="skill"><div class="num">01 / CAD</div><h3>CAD &amp; Mechanical Design</h3><p>SOLIDWORKS — Intermediate · AutoCAD — Intermediate · Engineering Drawing · Machine Drawing · Mechanical Design · 2D CAD Drafting</p></div>
+<div class="skill"><div class="num">02 / MFG</div><h3>Manufacturing</h3><p>Manufacturing Processes · Conventional Manufacturing Concepts · Production-oriented Design Concepts · Manufacturing Workflow Understanding</p></div>
+<div class="skill"><div class="num">03 / AM</div><h3>Additive Manufacturing</h3><p>FDM · SLA · Model Orientation · Support Structures · Build-Plate Adhesion · Infill Selection · Print Quality · Machine Operation · Filament Handling</p></div>
+<div class="skill"><div class="num">04 / DIGITAL</div><h3>Programming &amp; Digital Tools</h3><p>C Programming · Python · Git · GitHub · Technical Documentation</p></div>
+</div></section>
+
+<section id="field"><div class="label">04 / EXPERIENCE</div><h2 class="section-title">Real<br><em>world.</em></h2><div class="experience">
+<article class="job"><div class="job-id">01</div><div><h3>PRECISION ENGINEERING TECHNOLOGY CENTRE</h3><h4>ADDITIVE MANUFACTURING INTERNSHIP</h4><p>Gained practical exposure to FDM and SLA additive manufacturing workflows, including model preparation, orientation, support generation, build-plate adhesion, infill selection, print-quality considerations, machine operation and filament handling.</p><p>Software: Fracktory · Bambu Studio · Voxeldance Tango</p></div><div class="date">28 JUL —<br>13 AUG<br>2026</div></article>
+<article class="job"><div class="job-id">02</div><div><h3>SWITCHING TECHNOLOGIES GUNTHER LIMITED</h3><h4>INDUSTRIAL INTERNSHIP</h4><p>Gained industrial exposure to engineering and manufacturing practices in a professional production environment, developing an understanding of workplace procedures, manufacturing operations and practical engineering applications.</p></div><div class="date">09 JUN —<br>25 JUN<br>2026</div></article>
+</div></section>
+
+<section><div class="label">05 / RECORDS</div><h2 class="section-title">Also<br><em>done.</em></h2><div class="records">
+<div class="record"><b>01</b><h3>IEEE Xtreme</h3><p>Programming competitions</p></div><div class="record"><b>02</b><h3>NPTEL</h3><p>Courses &amp; certifications</p></div><div class="record"><b>03</b><h3>Skillrack</h3><p>Programming practice</p></div><div class="record"><b>04</b><h3>SWAYAM</h3><p>Technical learning</p></div><div class="record"><b>05</b><h3>CAD</h3><p>Mechanical drawing work</p></div><div class="record"><b>06</b><h3>AM</h3><p>Hands-on exposure</p></div>
+</div></section>
+
+<section><div class="label">06 / NEXT</div><h2 class="section-title">Keep<br><em>moving.</em></h2><div class="future">
+<div class="future-item"><span>ACTIVE</span><h3>Advanced CAD &amp; Mechanical Design</h3></div><div class="future-item"><span>ACTIVE</span><h3>Manufacturing &amp; Production Knowledge</h3></div><div class="future-item"><span>ACTIVE</span><h3>Additive Manufacturing</h3></div><div class="future-item"><span>ACTIVE</span><h3>Engineering Software</h3></div><div class="future-item"><span>ACTIVE</span><h3>Programming &amp; Automation</h3></div><div class="future-item"><span>ACTIVE</span><h3>Practical Engineering Projects</h3></div>
+</div></section>
+</main>
+</div>
+
+<section class="contact" id="contact"><div class="wrap"><div class="label">07 / CONTACT</div><h2>LET'S<br><span>BUILD.</span></h2><div class="contact-grid"><div><p>For engineering, technical or professional conversations.</p></div><div class="links">
+<a href="mailto:sit24me031@sairamtap.edu.in">EMAIL → sit24me031@sairamtap.edu.in</a>
+<a href="https://github.com/Harry13181" target="_blank" rel="noopener">GITHUB → Harry13181</a>
+<a href="https://linkedin.com/in/hari-prasath-p-bb4b11404" target="_blank" rel="noopener">LINKEDIN → HariPrasath P</a>
+<a href="https://harry13181.github.io/Portfolio/" target="_blank" rel="noopener">PORTFOLIO → GitHub Pages</a>
+</div></div><div class="footer"><span>KINETIC POSTER / DESIGN 09</span><span>© 2026 HARI PRASATH P</span></div></div></section>
+</body>
+</html>

@@ -1,0 +1,403 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="HariPrasath P — 21 experimental mechanical engineering portfolio designs.">
+<title>HariPrasath P | Portfolio Design Lab</title>
+<style>
+:root {
+  --bg:#050608; --panel:#0b0e13; --line:#202631; --text:#f1f4f7;
+  --muted:#8993a2; --accent:#61e6ff;
+}
+* { box-sizing:border-box; }
+html { scroll-behavior:smooth; }
+body {
+  margin:0; background:var(--bg); color:var(--text);
+  font-family:Arial,Helvetica,sans-serif;
+}
+body:before {
+  content:""; position:fixed; inset:0; pointer-events:none; opacity:.45;
+  background-image:linear-gradient(rgba(255,255,255,.025) 1px,transparent 1px),
+                   linear-gradient(90deg,rgba(255,255,255,.025) 1px,transparent 1px);
+  background-size:40px 40px;
+}
+a { color:inherit; text-decoration:none; }
+.container { width:min(1500px,94%); margin:auto; }
+
+header {
+  min-height:100vh; display:flex; flex-direction:column; justify-content:center;
+  border-bottom:1px solid var(--line); position:relative;
+}
+.topbar {
+  position:absolute; top:0; left:0; right:0; height:70px;
+  border-bottom:1px solid var(--line); display:flex; align-items:center;
+  justify-content:space-between; font:9px "Courier New",monospace;
+}
+.brand { color:var(--accent); letter-spacing:.14em; }
+.status { color:#7d8795; }
+.status:before {
+  content:""; display:inline-block; width:6px; height:6px; border-radius:50%;
+  background:#72ff8a; margin-right:7px; box-shadow:0 0 10px #72ff8a;
+}
+.kicker { color:var(--accent); font:10px "Courier New",monospace; letter-spacing:.3em; }
+h1 {
+  font-size:clamp(4rem,12vw,12rem); line-height:.76; letter-spacing:-.11em;
+  margin:25px 0 35px; max-width:1100px;
+}
+h1 span {
+  color:transparent; -webkit-text-stroke:1px #dce4ec;
+}
+.intro {
+  max-width:700px; color:var(--muted); font:11px/1.9 "Courier New",monospace;
+}
+.meta {
+  display:flex; gap:30px; flex-wrap:wrap; margin-top:40px;
+  font:9px "Courier New",monospace; color:#697586;
+}
+.meta strong { color:var(--text); }
+
+.toolbar {
+  padding:28px 0; border-bottom:1px solid var(--line);
+  display:flex; justify-content:space-between; gap:20px; align-items:center;
+}
+.toolbar h2 { margin:0; font-size:22px; letter-spacing:-.05em; }
+.toolbar span { font:9px "Courier New",monospace; color:var(--muted); }
+
+.grid {
+  display:grid; grid-template-columns:repeat(2,1fr); gap:16px;
+  padding:35px 0 80px;
+}
+.design-card {
+  background:var(--panel); border:1px solid var(--line);
+  transition:transform .25s,border-color .25s;
+}
+.design-card:hover { transform:translateY(-5px); border-color:#435064; }
+.preview {
+  height:480px; background:#020305; position:relative; overflow:hidden;
+  border-bottom:1px solid var(--line);
+}
+.preview iframe {
+  position:absolute; inset:0; width:100%; height:100%;
+  border:0; background:#050608;
+  transform:scale(.62); transform-origin:0 0;
+  width:161.3%; height:161.3%;
+  pointer-events:none;
+}
+.preview-label {
+  position:absolute; z-index:3; left:14px; top:12px;
+  padding:7px 9px; background:rgba(3,5,8,.82);
+  border:1px solid #2c3645; color:var(--accent);
+  font:8px "Courier New",monospace; letter-spacing:.12em;
+}
+.preview-overlay {
+  position:absolute; inset:0; z-index:4; display:flex; align-items:flex-end;
+  justify-content:flex-end; padding:16px;
+  background:linear-gradient(transparent 65%,rgba(0,0,0,.72));
+  opacity:0; transition:opacity .25s;
+}
+.design-card:hover .preview-overlay { opacity:1; }
+.preview-overlay a {
+  padding:10px 13px; border:1px solid var(--accent);
+  background:rgba(3,5,8,.9); color:var(--accent);
+  font:9px "Courier New",monospace;
+}
+.card-info {
+  display:grid; grid-template-columns:65px 1fr; gap:15px; padding:20px;
+}
+.number { font:11px "Courier New",monospace; color:var(--accent); }
+.card-info h2 { margin:0 0 8px; font-size:25px; letter-spacing:-.06em; }
+.card-info p { margin:0; color:var(--muted); font:9px/1.7 "Courier New",monospace; }
+
+footer {
+  border-top:1px solid var(--line); padding:20px 0 30px;
+  display:flex; justify-content:space-between; gap:20px;
+  color:var(--muted); font:8px "Courier New",monospace;
+}
+@media(max-width:850px) {
+  .grid { grid-template-columns:1fr; }
+  .preview { height:440px; }
+}
+@media(max-width:550px) {
+  .container { width:90%; }
+  .topbar { height:60px; }
+  .status { display:none; }
+  header { min-height:88vh; }
+  .preview { height:330px; }
+  .card-info { grid-template-columns:45px 1fr; }
+  .card-info h2 { font-size:21px; }
+  footer { flex-direction:column; }
+}
+@media(prefers-reduced-motion:reduce) {
+  * { scroll-behavior:auto !important; transition:none !important; }
+}
+</style>
+</head>
+<body>
+<header>
+  <div class="container">
+    <div class="topbar">
+      <a class="brand" href="#">HP // PORTFOLIO DESIGN LAB</a>
+      <span class="status">21 DESIGNS ONLINE</span>
+    </div>
+    <div class="kicker">MECHANICAL ENGINEERING · VISUAL EXPERIMENTS · 2026</div>
+    <h1>PORTFOLIO<br><span>DESIGN LAB</span></h1>
+    <p class="intro">
+      A collection of 21 independent portfolio concepts created for HariPrasath P.
+      Every design uses the same portfolio information while exploring a different
+      visual language, layout, interaction style, and opening animation.
+    </p>
+    <div class="meta">
+      <span><strong>01–21</strong> DESIGN VARIATIONS</span>
+      <span><strong>HTML</strong> SINGLE-FILE CONCEPTS</span>
+      <span><strong>21</strong> INDEPENDENT EXPERIENCES</span>
+    </div>
+  </div>
+</header>
+
+<main class="container">
+  <div class="toolbar">
+    <h2>SELECT A DESIGN</h2>
+    <span>LIVE PREVIEWS · CLICK TO OPEN FULL VERSION</span>
+  </div>
+  <section class="grid">
+    <article class="design-card">
+  <div class="preview">
+    <div class="preview-label">DESIGN 01</div>
+    <iframe src="01.html" title="Design 1: Futuristic Tech" loading="lazy"></iframe>
+    <div class="preview-overlay"><a href="01.html">OPEN DESIGN ↗</a></div>
+  </div>
+  <div class="card-info">
+    <span class="number">01</span>
+    <div><h2>Futuristic Tech</h2><p>High-tech portfolio interface with a futuristic engineering aesthetic.</p></div>
+  </div>
+</article>
+<article class="design-card">
+  <div class="preview">
+    <div class="preview-label">DESIGN 02</div>
+    <iframe src="02.html" title="Design 2: Minimal Editorial" loading="lazy"></iframe>
+    <div class="preview-overlay"><a href="02.html">OPEN DESIGN ↗</a></div>
+  </div>
+  <div class="card-info">
+    <span class="number">02</span>
+    <div><h2>Minimal Editorial</h2><p>Clean editorial layout focused on typography and whitespace.</p></div>
+  </div>
+</article>
+<article class="design-card">
+  <div class="preview">
+    <div class="preview-label">DESIGN 03</div>
+    <iframe src="03.html" title="Design 3: Cyberpunk Terminal" loading="lazy"></iframe>
+    <div class="preview-overlay"><a href="03.html">OPEN DESIGN ↗</a></div>
+  </div>
+  <div class="card-info">
+    <span class="number">03</span>
+    <div><h2>Cyberpunk Terminal</h2><p>Terminal-inspired portfolio with a cyberpunk visual system.</p></div>
+  </div>
+</article>
+<article class="design-card">
+  <div class="preview">
+    <div class="preview-label">DESIGN 04</div>
+    <iframe src="04.html" title="Design 4: Gothic Engineering Archive" loading="lazy"></iframe>
+    <div class="preview-overlay"><a href="04.html">OPEN DESIGN ↗</a></div>
+  </div>
+  <div class="card-info">
+    <span class="number">04</span>
+    <div><h2>Gothic Engineering Archive</h2><p>Dark archival design with gothic engineering character.</p></div>
+  </div>
+</article>
+<article class="design-card">
+  <div class="preview">
+    <div class="preview-label">DESIGN 05</div>
+    <iframe src="05.html" title="Design 5: Engineering Blueprint" loading="lazy"></iframe>
+    <div class="preview-overlay"><a href="05.html">OPEN DESIGN ↗</a></div>
+  </div>
+  <div class="card-info">
+    <span class="number">05</span>
+    <div><h2>Engineering Blueprint</h2><p>Technical blueprint-inspired engineering portfolio.</p></div>
+  </div>
+</article>
+<article class="design-card">
+  <div class="preview">
+    <div class="preview-label">DESIGN 06</div>
+    <iframe src="06.html" title="Design 6: Swiss Grid" loading="lazy"></iframe>
+    <div class="preview-overlay"><a href="06.html">OPEN DESIGN ↗</a></div>
+  </div>
+  <div class="card-info">
+    <span class="number">06</span>
+    <div><h2>Swiss Grid</h2><p>Structured Swiss-style grid with precise typography.</p></div>
+  </div>
+</article>
+<article class="design-card">
+  <div class="preview">
+    <div class="preview-label">DESIGN 07</div>
+    <iframe src="07.html" title="Design 7: Industrial Control System" loading="lazy"></iframe>
+    <div class="preview-overlay"><a href="07.html">OPEN DESIGN ↗</a></div>
+  </div>
+  <div class="card-info">
+    <span class="number">07</span>
+    <div><h2>Industrial Control System</h2><p>Industrial control-room interface inspired by engineering systems.</p></div>
+  </div>
+</article>
+<article class="design-card">
+  <div class="preview">
+    <div class="preview-label">DESIGN 08</div>
+    <iframe src="08.html" title="Design 8: Museum of Engineering" loading="lazy"></iframe>
+    <div class="preview-overlay"><a href="08.html">OPEN DESIGN ↗</a></div>
+  </div>
+  <div class="card-info">
+    <span class="number">08</span>
+    <div><h2>Museum of Engineering</h2><p>Museum-style presentation for an engineering profile.</p></div>
+  </div>
+</article>
+<article class="design-card">
+  <div class="preview">
+    <div class="preview-label">DESIGN 09</div>
+    <iframe src="09.html" title="Design 9: Kinetic Poster" loading="lazy"></iframe>
+    <div class="preview-overlay"><a href="09.html">OPEN DESIGN ↗</a></div>
+  </div>
+  <div class="card-info">
+    <span class="number">09</span>
+    <div><h2>Kinetic Poster</h2><p>Bold kinetic-poster composition with strong visual movement.</p></div>
+  </div>
+</article>
+<article class="design-card">
+  <div class="preview">
+    <div class="preview-label">DESIGN 10</div>
+    <iframe src="10.html" title="Design 10: Mechanical Instrument" loading="lazy"></iframe>
+    <div class="preview-overlay"><a href="10.html">OPEN DESIGN ↗</a></div>
+  </div>
+  <div class="card-info">
+    <span class="number">10</span>
+    <div><h2>Mechanical Instrument</h2><p>Mechanical-instrument inspired interface and information display.</p></div>
+  </div>
+</article>
+<article class="design-card">
+  <div class="preview">
+    <div class="preview-label">DESIGN 11</div>
+    <iframe src="11.html" title="Design 11: Blueprint Drafting Table" loading="lazy"></iframe>
+    <div class="preview-overlay"><a href="11.html">OPEN DESIGN ↗</a></div>
+  </div>
+  <div class="card-info">
+    <span class="number">11</span>
+    <div><h2>Blueprint Drafting Table</h2><p>Drafting-table aesthetic based on engineering drawing workflows.</p></div>
+  </div>
+</article>
+<article class="design-card">
+  <div class="preview">
+    <div class="preview-label">DESIGN 12</div>
+    <iframe src="12.html" title="Design 12: Kinetic Museum Card" loading="lazy"></iframe>
+    <div class="preview-overlay"><a href="12.html">OPEN DESIGN ↗</a></div>
+  </div>
+  <div class="card-info">
+    <span class="number">12</span>
+    <div><h2>Kinetic Museum Card</h2><p>Museum cards combined with kinetic visual motion.</p></div>
+  </div>
+</article>
+<article class="design-card">
+  <div class="preview">
+    <div class="preview-label">DESIGN 13</div>
+    <iframe src="13.html" title="Design 13: Command Console" loading="lazy"></iframe>
+    <div class="preview-overlay"><a href="13.html">OPEN DESIGN ↗</a></div>
+  </div>
+  <div class="card-info">
+    <span class="number">13</span>
+    <div><h2>Command Console</h2><p>Command-console interface for a technical portfolio.</p></div>
+  </div>
+</article>
+<article class="design-card">
+  <div class="preview">
+    <div class="preview-label">DESIGN 14</div>
+    <iframe src="14.html" title="Design 14: Industrial Conveyor" loading="lazy"></iframe>
+    <div class="preview-overlay"><a href="14.html">OPEN DESIGN ↗</a></div>
+  </div>
+  <div class="card-info">
+    <span class="number">14</span>
+    <div><h2>Industrial Conveyor</h2><p>Industrial production-line inspired layout.</p></div>
+  </div>
+</article>
+<article class="design-card">
+  <div class="preview">
+    <div class="preview-label">DESIGN 15</div>
+    <iframe src="15.html" title="Design 15: Mechanical Engineering Journal" loading="lazy"></iframe>
+    <div class="preview-overlay"><a href="15.html">OPEN DESIGN ↗</a></div>
+  </div>
+  <div class="card-info">
+    <span class="number">15</span>
+    <div><h2>Mechanical Engineering Journal</h2><p>Engineering journal and technical-document aesthetic.</p></div>
+  </div>
+</article>
+<article class="design-card">
+  <div class="preview">
+    <div class="preview-label">DESIGN 16</div>
+    <iframe src="16.html" title="Design 16: Engineering HUD" loading="lazy"></iframe>
+    <div class="preview-overlay"><a href="16.html">OPEN DESIGN ↗</a></div>
+  </div>
+  <div class="card-info">
+    <span class="number">16</span>
+    <div><h2>Engineering HUD</h2><p>Heads-up-display interface inspired by engineering instrumentation.</p></div>
+  </div>
+</article>
+<article class="design-card">
+  <div class="preview">
+    <div class="preview-label">DESIGN 17</div>
+    <iframe src="17.html" title="Design 17: Mechanical Blueprint" loading="lazy"></iframe>
+    <div class="preview-overlay"><a href="17.html">OPEN DESIGN ↗</a></div>
+  </div>
+  <div class="card-info">
+    <span class="number">17</span>
+    <div><h2>Mechanical Blueprint</h2><p>Mechanical drawing and blueprint-focused visual language.</p></div>
+  </div>
+</article>
+<article class="design-card">
+  <div class="preview">
+    <div class="preview-label">DESIGN 18</div>
+    <iframe src="18.html" title="Design 18: Industrial Operations Dashboard" loading="lazy"></iframe>
+    <div class="preview-overlay"><a href="18.html">OPEN DESIGN ↗</a></div>
+  </div>
+  <div class="card-info">
+    <span class="number">18</span>
+    <div><h2>Industrial Operations Dashboard</h2><p>Operations dashboard presenting engineering information as live systems.</p></div>
+  </div>
+</article>
+<article class="design-card">
+  <div class="preview">
+    <div class="preview-label">DESIGN 19</div>
+    <iframe src="19.html" title="Design 19: Kinetic Engineering Magazine" loading="lazy"></iframe>
+    <div class="preview-overlay"><a href="19.html">OPEN DESIGN ↗</a></div>
+  </div>
+  <div class="card-info">
+    <span class="number">19</span>
+    <div><h2>Kinetic Engineering Magazine</h2><p>Editorial engineering magazine with dynamic typography.</p></div>
+  </div>
+</article>
+<article class="design-card">
+  <div class="preview">
+    <div class="preview-label">DESIGN 20</div>
+    <iframe src="20.html" title="Design 20: Engineering Command Center" loading="lazy"></iframe>
+    <div class="preview-overlay"><a href="20.html">OPEN DESIGN ↗</a></div>
+  </div>
+  <div class="card-info">
+    <span class="number">20</span>
+    <div><h2>Engineering Command Center</h2><p>Sci-fi engineering operating-center interface.</p></div>
+  </div>
+</article>
+<article class="design-card">
+  <div class="preview">
+    <div class="preview-label">DESIGN 21</div>
+    <iframe src="21.html" title="Design 21: Energy Portal" loading="lazy"></iframe>
+    <div class="preview-overlay"><a href="21.html">OPEN DESIGN ↗</a></div>
+  </div>
+  <div class="card-info">
+    <span class="number">21</span>
+    <div><h2>Energy Portal</h2><p>Cinematic energy portal opening followed by the portfolio.</p></div>
+  </div>
+</article>
+  </section>
+</main>
+
+<footer class="container">
+  <span>HARI PRASATH P / MECHANICAL ENGINEERING</span>
+  <span>PORTFOLIO DESIGN LAB · 2026</span>
+</footer>
+</body>
+</html>
