@@ -1,0 +1,506 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>HariPrasath P — Design 02</title>
+<meta name="description" content="HariPrasath P — Mechanical Engineering Student, CAD, Manufacturing and Additive Manufacturing.">
+<style>
+  :root{
+    --paper:#f5f1e8;
+    --ink:#171714;
+    --muted:#68665f;
+    --line:#c9c4b8;
+    --accent:#b44a2b;
+    --white:#fffdf8;
+  }
+  *{box-sizing:border-box}
+  html{scroll-behavior:smooth}
+  body{
+    margin:0;
+    background:var(--paper);
+    color:var(--ink);
+    font-family:Arial, Helvetica, sans-serif;
+    line-height:1.65;
+  }
+  body:before{
+    content:"";
+    position:fixed;
+    inset:0;
+    pointer-events:none;
+    opacity:.18;
+    background-image:radial-gradient(#777 0.5px,transparent .5px);
+    background-size:8px 8px;
+    mix-blend-mode:multiply;
+  }
+  a{color:inherit;text-decoration:none}
+  .intro{
+    position:fixed;
+    inset:0;
+    z-index:20;
+    background:var(--ink);
+    color:var(--paper);
+    display:flex;
+    align-items:flex-end;
+    padding:7vw;
+    animation:introOut 1s cubic-bezier(.77,0,.18,1) 2.7s forwards;
+  }
+  .intro-number{
+    position:absolute;
+    top:6vw;
+    right:7vw;
+    font:700 clamp(4rem,10vw,9rem)/.8 Georgia,serif;
+    opacity:.12;
+  }
+  .intro-label{
+    overflow:hidden;
+    max-width:800px;
+  }
+  .intro-label small{
+    display:block;
+    color:#bdb8aa;
+    letter-spacing:.22em;
+    text-transform:uppercase;
+    margin-bottom:18px;
+    animation:rise .8s ease .25s both;
+  }
+  .intro-label h1{
+    margin:0;
+    font:normal clamp(3rem,9vw,8rem)/.88 Georgia,serif;
+    letter-spacing:-.055em;
+    animation:rise 1s cubic-bezier(.2,.8,.2,1) .45s both;
+  }
+  .intro-line{
+    width:0;
+    height:2px;
+    background:var(--accent);
+    margin-top:30px;
+    animation:lineGrow 1.1s ease 1.35s forwards;
+  }
+  @keyframes rise{from{transform:translateY(110%);opacity:0}to{transform:none;opacity:1}}
+  @keyframes lineGrow{to{width:min(520px,70vw)}}
+  @keyframes introOut{
+    0%{clip-path:inset(0)}
+    100%{clip-path:inset(0 0 100% 0);visibility:hidden}
+  }
+
+  header{
+    min-height:100vh;
+    padding:28px 6vw 8vw;
+    display:flex;
+    flex-direction:column;
+    position:relative;
+  }
+  .top{
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    border-bottom:1px solid var(--line);
+    padding-bottom:18px;
+    animation:fade .8s ease 3s both;
+  }
+  .mark{font-weight:800;letter-spacing:.08em}
+  .mark span{color:var(--accent)}
+  nav{display:flex;gap:28px;font-size:.78rem;text-transform:uppercase;letter-spacing:.12em}
+  nav a{position:relative}
+  nav a:after{
+    content:"";
+    position:absolute;
+    left:0;bottom:-6px;width:0;height:1px;background:var(--accent);
+    transition:.3s;
+  }
+  nav a:hover:after{width:100%}
+  .hero{
+    margin:auto 0;
+    display:grid;
+    grid-template-columns:1.25fr .75fr;
+    gap:7vw;
+    align-items:end;
+    animation:heroIn 1.2s ease 3.05s both;
+  }
+  .eyebrow{
+    color:var(--accent);
+    text-transform:uppercase;
+    letter-spacing:.18em;
+    font-size:.72rem;
+    font-weight:700;
+    margin-bottom:22px;
+  }
+  .hero h1{
+    font:normal clamp(4.2rem,10vw,10rem)/.82 Georgia,serif;
+    letter-spacing:-.07em;
+    margin:0;
+    max-width:900px;
+  }
+  .hero h1 em{font-style:italic;color:var(--accent)}
+  .hero-copy{
+    max-width:440px;
+    color:var(--muted);
+    font-size:1rem;
+    margin-bottom:10px;
+  }
+  .scroll{
+    position:absolute;
+    left:6vw;
+    bottom:28px;
+    font-size:.7rem;
+    letter-spacing:.16em;
+    text-transform:uppercase;
+    color:var(--muted);
+  }
+  .scroll:before{
+    content:"";
+    display:inline-block;
+    width:45px;height:1px;background:var(--accent);
+    vertical-align:middle;margin-right:12px;
+  }
+  @keyframes fade{from{opacity:0}to{opacity:1}}
+  @keyframes heroIn{from{opacity:0;transform:translateY(35px)}to{opacity:1;transform:none}}
+
+  main{border-top:1px solid var(--line)}
+  section{padding:9vw 6vw;border-bottom:1px solid var(--line)}
+  .section-head{
+    display:grid;
+    grid-template-columns:180px 1fr;
+    gap:5vw;
+    margin-bottom:5vw;
+  }
+  .section-index{
+    color:var(--accent);
+    font:italic 1.3rem Georgia,serif;
+  }
+  .section-title{
+    font:normal clamp(2.8rem,6vw,6rem)/.9 Georgia,serif;
+    letter-spacing:-.055em;
+    margin:0;
+  }
+  .about-grid{
+    display:grid;
+    grid-template-columns:180px 1fr 1fr;
+    gap:5vw;
+  }
+  .about-grid p{margin:0;max-width:520px}
+  .lead{font:normal clamp(1.5rem,2.5vw,2.3rem)/1.25 Georgia,serif}
+  .muted{color:var(--muted)}
+  .education{
+    margin-left:calc(180px + 5vw);
+    border-top:1px solid var(--line);
+  }
+  .edu-row{
+    display:grid;
+    grid-template-columns:180px 1fr 180px;
+    gap:4vw;
+    padding:28px 0;
+    border-bottom:1px solid var(--line);
+  }
+  .edu-row strong{font-size:1.1rem}
+  .year{text-align:right;color:var(--muted)}
+  .skills-layout{
+    display:grid;
+    grid-template-columns:180px 1fr;
+    gap:5vw;
+  }
+  .skill-area{
+    display:grid;
+    grid-template-columns:repeat(2,minmax(0,1fr));
+    gap:0 5vw;
+  }
+  .skill-group{
+    padding:25px 0 35px;
+    border-top:1px solid var(--line);
+  }
+  .skill-group h3{
+    margin:0 0 18px;
+    font-size:.72rem;
+    letter-spacing:.16em;
+    text-transform:uppercase;
+    color:var(--accent);
+  }
+  .skill-group p{margin:0;font:normal 1.55rem/1.4 Georgia,serif}
+  .skill-group small{display:block;margin-top:10px;color:var(--muted)}
+  .experience{margin-left:calc(180px + 5vw)}
+  .job{
+    display:grid;
+    grid-template-columns:180px 1fr;
+    gap:5vw;
+    padding:35px 0;
+    border-top:1px solid var(--line);
+  }
+  .job-date{color:var(--muted);font-size:.85rem}
+  .job h3{font:normal clamp(1.8rem,3vw,3rem)/1 Georgia,serif;margin:0 0 8px}
+  .job h4{margin:0 0 20px;font-size:.8rem;text-transform:uppercase;letter-spacing:.13em;color:var(--accent)}
+  .job p{max-width:720px;margin:0;color:var(--muted)}
+  .software{
+    margin-top:24px;
+    display:flex;
+    flex-wrap:wrap;
+    gap:8px 24px;
+    font-size:.82rem;
+    text-transform:uppercase;
+    letter-spacing:.08em;
+  }
+  .software span:before{content:"— ";color:var(--accent)}
+  .activities{
+    display:grid;
+    grid-template-columns:180px 1fr;
+    gap:5vw;
+  }
+  .activity-list{
+    display:grid;
+    grid-template-columns:repeat(2,1fr);
+    gap:0 5vw;
+  }
+  .activity-list p{
+    border-top:1px solid var(--line);
+    padding:20px 0;
+    margin:0;
+  }
+  .development{
+    background:var(--ink);
+    color:var(--paper);
+    border-bottom:0;
+  }
+  .development .section-index{color:#d06b4c}
+  .development .section-title{max-width:900px}
+  .development-list{
+    margin-left:calc(180px + 5vw);
+    margin-top:5vw;
+    display:grid;
+    grid-template-columns:repeat(2,1fr);
+  }
+  .development-list div{
+    border-top:1px solid #4b4943;
+    padding:22px 0;
+    color:#d0ccc1;
+  }
+  .development-list div:nth-child(odd){margin-right:4vw}
+  footer{
+    padding:8vw 6vw 4vw;
+    background:var(--accent);
+    color:#fff8ee;
+  }
+  .contact-title{
+    font:normal clamp(4rem,11vw,11rem)/.8 Georgia,serif;
+    letter-spacing:-.07em;
+    margin:0 0 7vw;
+  }
+  .contact-grid{
+    display:flex;
+    justify-content:space-between;
+    gap:30px;
+    border-top:1px solid rgba(255,255,255,.45);
+    padding-top:25px;
+    font-size:.82rem;
+  }
+  .contact-grid a{border-bottom:1px solid rgba(255,255,255,.5)}
+  .back{font-size:.72rem;letter-spacing:.12em;text-transform:uppercase}
+  @media(max-width:800px){
+    header{padding:20px 6vw 18vw}
+    .top{align-items:flex-start}
+    nav{gap:12px;font-size:.62rem;flex-wrap:wrap;justify-content:flex-end}
+    .hero{grid-template-columns:1fr;gap:30px}
+    .hero h1{font-size:clamp(4rem,18vw,7rem)}
+    section{padding:18vw 6vw}
+    .section-head,.about-grid,.skills-layout,.activities{grid-template-columns:1fr;gap:25px}
+    .education,.experience,.development-list{margin-left:0}
+    .edu-row{grid-template-columns:1fr;gap:8px}
+    .year{text-align:left}
+    .skill-area,.activity-list,.development-list{grid-template-columns:1fr}
+    .development-list div:nth-child(odd){margin-right:0}
+    .job{grid-template-columns:1fr;gap:10px}
+    .contact-grid{flex-direction:column}
+  }
+  @media(prefers-reduced-motion:reduce){
+    *,*:before,*:after{animation-duration:.01ms!important;animation-iteration-count:1!important;transition:none!important}
+    html{scroll-behavior:auto}
+  }
+</style>
+</head>
+<body>
+
+<div class="intro">
+  <div class="intro-number">02</div>
+  <div class="intro-label">
+    <small>Portfolio / Design 02</small>
+    <h1>Less noise.<br>More engineering.</h1>
+    <div class="intro-line"></div>
+  </div>
+</div>
+
+<header id="top">
+  <div class="top">
+    <a class="mark" href="#top">HP<span>.</span></a>
+    <nav>
+      <a href="#about">About</a>
+      <a href="#skills">Skills</a>
+      <a href="#experience">Experience</a>
+      <a href="#development">Development</a>
+      <a href="#contact">Contact</a>
+    </nav>
+  </div>
+
+  <div class="hero">
+    <div>
+      <div class="eyebrow">Mechanical Engineering · CAD · Manufacturing</div>
+      <h1>HariPrasath <em>P</em></h1>
+    </div>
+    <p class="hero-copy">
+      B.E. Mechanical Engineering student building practical capability across
+      mechanical design, CAD, manufacturing and additive manufacturing.
+    </p>
+  </div>
+  <div class="scroll">Scroll to explore</div>
+</header>
+
+<main>
+  <section id="about">
+    <div class="section-head">
+      <div class="section-index">01 / About</div>
+      <h2 class="section-title">An engineer in progress.</h2>
+    </div>
+    <div class="about-grid">
+      <div></div>
+      <p class="lead">
+        I am a B.E. Mechanical Engineering student at Sri Sairam Institute of Technology,
+        with an interest in mechanical design, CAD, manufacturing processes and additive manufacturing.
+      </p>
+      <p class="muted">
+        My technical interests combine engineering design, manufacturing knowledge, CAD modelling,
+        technical drawing and practical experimentation. I am continuously developing my skills
+        through academic work, internships, technical learning and hands-on engineering work.
+      </p>
+    </div>
+  </section>
+
+  <section id="education">
+    <div class="section-head">
+      <div class="section-index">02 / Education</div>
+      <h2 class="section-title">The foundation.</h2>
+    </div>
+    <div class="education">
+      <div class="edu-row">
+        <div>2024 — 2028</div>
+        <div>
+          <strong>B.E. Mechanical Engineering</strong><br>
+          <span class="muted">Sri Sairam Institute of Technology</span>
+        </div>
+        <div class="year">3rd Year</div>
+      </div>
+    </div>
+  </section>
+
+  <section id="skills">
+    <div class="section-head">
+      <div class="section-index">03 / Skills</div>
+      <h2 class="section-title">Tools, methods &amp; making.</h2>
+    </div>
+    <div class="skills-layout">
+      <div></div>
+      <div class="skill-area">
+        <div class="skill-group">
+          <h3>CAD &amp; Mechanical Design</h3>
+          <p>SOLIDWORKS · AutoCAD · Engineering Drawing · Machine Drawing · Mechanical Design · 2D CAD Drafting</p>
+          <small>SOLIDWORKS — Intermediate · AutoCAD — Intermediate</small>
+        </div>
+        <div class="skill-group">
+          <h3>Manufacturing</h3>
+          <p>Manufacturing Processes · Conventional Manufacturing · Production-oriented Design · Manufacturing Workflow</p>
+        </div>
+        <div class="skill-group">
+          <h3>Additive Manufacturing</h3>
+          <p>FDM · SLA · Model Orientation · Supports · Build-Plate Adhesion · Infill · Print Quality</p>
+          <small>Basic machine operation and filament handling</small>
+        </div>
+        <div class="skill-group">
+          <h3>Programming &amp; Digital Tools</h3>
+          <p>C Programming · Python · Git · GitHub · Technical Documentation</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="experience">
+    <div class="section-head">
+      <div class="section-index">04 / Experience</div>
+      <h2 class="section-title">Learning through industry.</h2>
+    </div>
+    <div class="experience">
+      <article class="job">
+        <div class="job-date">28 JUL — 13 AUG 2026</div>
+        <div>
+          <h3>Precision Engineering Technology Centre</h3>
+          <h4>Additive Manufacturing Internship</h4>
+          <p>
+            Gained practical exposure to FDM and SLA additive manufacturing workflows,
+            including model preparation, orientation, support generation, build-plate adhesion,
+            infill selection, print-quality considerations, machine operation and filament handling.
+          </p>
+          <div class="software">
+            <span>Fracktory</span><span>Bambu Studio</span><span>Voxeldance Tango</span>
+          </div>
+        </div>
+      </article>
+
+      <article class="job">
+        <div class="job-date">09 JUN — 25 JUN 2026</div>
+        <div>
+          <h3>Switching Technologies Gunther Limited</h3>
+          <h4>Industrial Internship</h4>
+          <p>
+            Gained industrial exposure to engineering and manufacturing practices in a professional
+            production environment, developing an understanding of workplace procedures,
+            manufacturing operations and practical engineering applications.
+          </p>
+        </div>
+      </article>
+    </div>
+  </section>
+
+  <section id="activities">
+    <div class="section-head">
+      <div class="section-index">05 / Activities</div>
+      <h2 class="section-title">Beyond the classroom.</h2>
+    </div>
+    <div class="activities">
+      <div></div>
+      <div class="activity-list">
+        <p>Participated in IEEE Xtreme programming competitions.</p>
+        <p>Completed multiple NPTEL courses and certifications.</p>
+        <p>Practiced programming through Skillrack.</p>
+        <p>Continued technical learning through SWAYAM.</p>
+        <p>Developed CAD-based mechanical drawing work.</p>
+        <p>Gained hands-on exposure to additive manufacturing.</p>
+      </div>
+    </div>
+  </section>
+
+  <section class="development" id="development">
+    <div class="section-head">
+      <div class="section-index">06 / Development</div>
+      <h2 class="section-title">What I am building next.</h2>
+    </div>
+    <div class="development-list">
+      <div>Advanced CAD &amp; Mechanical Design</div>
+      <div>Manufacturing &amp; Production Knowledge</div>
+      <div>Additive Manufacturing</div>
+      <div>Engineering Software</div>
+      <div>Programming &amp; Automation</div>
+      <div>Practical Engineering Projects</div>
+    </div>
+  </section>
+</main>
+
+<footer id="contact">
+  <div class="eyebrow" style="color:#fff8ee">07 / Contact</div>
+  <h2 class="contact-title">Let's connect.</h2>
+  <div class="contact-grid">
+    <a href="mailto:sit24me031@sairamtap.edu.in">sit24me031@sairamtap.edu.in</a>
+    <a href="https://github.com/Harry13181" target="_blank" rel="noopener">GitHub</a>
+    <a href="https://linkedin.com/in/hari-prasath-p-bb4b11404" target="_blank" rel="noopener">LinkedIn</a>
+    <a href="https://harry13181.github.io/Portfolio/" target="_blank" rel="noopener">Portfolio</a>
+    <a class="back" href="#top">Back to top ↑</a>
+  </div>
+</footer>
+
+</body>
+</html>
