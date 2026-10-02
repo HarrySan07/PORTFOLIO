@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>HariPrasath P | Design 07 - Industrial</title>
+<style>
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+:root{--bg:#111111;--text:#f1f1f1;--accent:#ff8a00;--panel:#1b1b1b}
+body{font-family:Segoe UI,Arial,sans-serif;background:var(--bg);color:var(--text);min-height:100vh;overflow-x:hidden}
+#intro{position:fixed;inset:0;background:var(--bg);z-index:99;display:grid;place-items:center;transition:1s}
+#intro.hide{opacity:0;visibility:hidden}
+.loader{text-align:center;position:relative}
+.loader h1{font-size:clamp(2rem,6vw,5rem);letter-spacing:4px;color:var(--accent)}
+.loader p{margin-top:15px;opacity:.7;font-family:monospace}
+.loader::after{content:"";display:block;width:180px;height:2px;background:var(--accent);margin:25px auto 0;animation:load 2.2s ease forwards}
+@keyframes load{from{transform:scaleX(0);transform-origin:left}to{transform:scaleX(1)}}
+.nav{position:sticky;top:0;z-index:20;padding:16px 5%;background:color-mix(in srgb,var(--bg) 88%,transparent);backdrop-filter:blur(14px);border-bottom:1px solid color-mix(in srgb,var(--accent) 30%,transparent);display:flex;justify-content:space-between}
+.nav a{color:var(--text);text-decoration:none;margin-left:18px;font-size:13px}
+main{max-width:1150px;margin:auto;padding:60px 5%}
+.hero{min-height:70vh;display:grid;place-items:center;text-align:center}
+.hero h2{color:var(--accent);font-size:14px;letter-spacing:4px}
+.hero h1{font-size:clamp(3rem,8vw,7rem);margin:20px 0}
+.hero p{max-width:750px;margin:auto;line-height:1.8;opacity:.72;font-size:18px}
+.btn{display:inline-block;margin-top:25px;padding:12px 20px;border:1px solid var(--accent);color:var(--accent);text-decoration:none;border-radius:8px}
+section{padding:70px 0}h2{color:var(--accent);margin-bottom:25px}
+.card{background:var(--panel);border:1px solid color-mix(in srgb,var(--accent) 25%,transparent);border-radius:16px;padding:24px;margin:15px 0;transition:.3s}
+.card:hover{transform:translateY(-4px);border-color:var(--accent)}
+.grid{display:grid;grid-template-columns:repeat(2,1fr);gap:18px}
+p,li{line-height:1.8;opacity:.75}ul{padding-left:20px}
+.tags{display:flex;flex-wrap:wrap;gap:8px}.tag{padding:8px 10px;border:1px solid color-mix(in srgb,var(--accent) 30%,transparent);border-radius:7px;opacity:.8;font-size:13px}
+footer{padding:30px;text-align:center;border-top:1px solid color-mix(in srgb,var(--accent) 25%,transparent);opacity:.7}
+@media(max-width:750px){.grid{grid-template-columns:1fr}.nav div:last-child{display:none}}
+</style>
+</head>
+<body>
+<div id="intro"><div class="loader"><h1>DESIGN 07</h1><p>MACHINE POWERING ON</p></div></div>
+<div class="nav"><strong>INDUSTRIAL</strong><div><a href="#about">About</a><a href="#skills">Skills</a><a href="#projects">Projects</a><a href="#contact">Contact</a></div></div>
+<main>
+<section class="hero">
+<div><h2>PORTFOLIO DESIGN 07</h2><h1>HariPrasath P</h1><p>Mechanical Engineering Student | CAD & Mechanical Design | Manufacturing | Additive Manufacturing</p><a class="btn" href="#projects">Explore Portfolio</a></div>
+</section>
+<section id="about"><h2>About Me</h2><div class="card"><p>I am a B.E. Mechanical Engineering student at Sri Sairam Institute of Technology, interested in mechanical design, CAD, manufacturing processes, and additive manufacturing.</p><p>My technical interests combine engineering design, manufacturing knowledge, CAD modelling, technical drawing, and practical experimentation.</p></div></section>
+<section><h2>Education</h2><div class="card"><h3>B.E. Mechanical Engineering</h3><p>Sri Sairam Institute of Technology · 2024–2028 · 3rd Year</p></div></section>
+<section id="skills"><h2>Technical Skills</h2><div class="grid">
+<div class="card"><h3>CAD & Mechanical Design</h3><div class="tags"><span class="tag">SOLIDWORKS — Intermediate</span><span class="tag">AutoCAD — Intermediate</span><span class="tag">Engineering Drawing</span><span class="tag">Machine Drawing</span><span class="tag">Mechanical Design</span><span class="tag">2D CAD Drafting</span></div></div>
+<div class="card"><h3>Manufacturing & Additive Manufacturing</h3><div class="tags"><span class="tag">Manufacturing Processes</span><span class="tag">FDM</span><span class="tag">SLA</span><span class="tag">Model Orientation</span><span class="tag">Support Structures</span><span class="tag">Build-Plate Adhesion</span><span class="tag">Infill Selection</span><span class="tag">Print Quality</span></div></div>
+<div class="card"><h3>Programming & Digital Tools</h3><div class="tags"><span class="tag">C</span><span class="tag">Python</span><span class="tag">Git</span><span class="tag">GitHub</span><span class="tag">Technical Documentation</span></div></div>
+</div></section>
+<section><h2>Internships</h2><div class="card"><h3>Precision Engineering Technology Centre</h3><p>Additive Manufacturing Internship · 28 July 2026 – 13 August 2026</p><p>Practical exposure to FDM and SLA workflows, orientation, supports, adhesion, infill, print quality, machine operation and filament handling.</p><p>Software: Fracktory · Bambu Studio · Voxeldance Tango</p></div><div class="card"><h3>Switching Technologies Gunther Limited</h3><p>Industrial Internship · 09 June 2026 – 25 June 2026</p><p>Industrial exposure to engineering and manufacturing practices in a professional production environment.</p></div></section>
+<section id="projects"><h2>Projects</h2><div class="grid">
+<div class="card"><h3>Plummer Block</h3><p>Machine Drawing · AutoCAD</p><ul><li>Mechanical component drawing</li><li>Orthographic representation</li><li>Dimensioning and detailing</li></ul></div>
+<div class="card"><h3>Screw Jack</h3><p>Machine Design · AutoCAD</p><ul><li>Assembly representation</li><li>Component detailing</li><li>Machine design principles</li></ul></div>
+<div class="card"><h3>Sleeve & Cotter Joint</h3><p>Machine Drawing · AutoCAD</p><ul><li>Joint representation</li><li>Sectional representation</li><li>Component detailing</li></ul></div>
+<div class="card"><h3>Gib & Cotter Joint</h3><p>Machine Drawing · AutoCAD</p><ul><li>Joint design</li><li>Dimensioning</li><li>Technical drawing</li></ul></div>
+</div></section>
+<section><h2>Certifications & Learning</h2><div class="tags"><span class="tag">NPTEL</span><span class="tag">SWAYAM</span><span class="tag">Skillrack</span><span class="tag">IEEE Xtreme</span></div></section>
+<section><h2>Current Development</h2><div class="tags"><span class="tag">Advanced CAD & Mechanical Design</span><span class="tag">Manufacturing & Production</span><span class="tag">Additive Manufacturing</span><span class="tag">Engineering Software</span><span class="tag">Programming & Automation</span><span class="tag">Practical Engineering Projects</span></div></section>
+<section id="contact"><h2>Contact</h2><div class="grid"><div class="card"><p>Email: <a href="mailto:sit24me031@sairamtap.edu.in">sit24me031@sairamtap.edu.in</a></p></div><div class="card"><p>GitHub: <a href="https://github.com/Harry13181">https://github.com/Harry13181</a></p></div><div class="card"><p>LinkedIn: <a href="https://linkedin.com/in/hari-prasath-p-bb4b11404">https://linkedin.com/in/hari-prasath-p-bb4b11404</a></p></div><div class="card"><p>Portfolio: <a href="https://harry13181.github.io/Portfolio/">https://harry13181.github.io/Portfolio/</a></p></div></div></section>
+</main>
+<footer>© 2026 HariPrasath P · Design 07 · Industrial</footer>
+<script>
+setTimeout(()=>document.getElementById("intro").classList.add("hide"),2400);
+</script>
+</body>
+</html>

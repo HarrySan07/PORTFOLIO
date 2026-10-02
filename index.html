@@ -1,0 +1,226 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>HariPrasath P | Portfolio Design Lab</title>
+<style>
+*{box-sizing:border-box;margin:0;padding:0}
+body{font-family:Segoe UI,Arial,sans-serif;background:#05070b;color:#eefaff;min-height:100vh}
+header{padding:70px 6% 45px;text-align:center;border-bottom:1px solid #17303a;background:radial-gradient(circle at 50% 0,#06303b55,transparent 50%)}
+header h1{font-size:clamp(2.5rem,7vw,5.5rem);letter-spacing:2px;color:#00eaff}
+header p{margin:15px auto 0;max-width:760px;color:#91a8b5;line-height:1.7}
+main{max-width:1400px;margin:auto;padding:45px 5%}
+.gallery{display:grid;grid-template-columns:repeat(3,1fr);gap:24px}
+.design-card{display:block;text-decoration:none;color:inherit;background:#0b1118;border:1px solid #19313d;border-radius:16px;overflow:hidden;transition:.35s}
+.design-card:hover{transform:translateY(-7px);border-color:#00eaff;box-shadow:0 15px 45px #00eaff16}
+.number{position:absolute;margin:14px;background:#05070bcc;border:1px solid #00eaff66;color:#00eaff;padding:6px 9px;border-radius:6px;font:12px monospace;z-index:2}
+.preview{height:220px;display:grid;place-items:center;position:relative;overflow:hidden;border-bottom:1px solid #19313d}
+.preview span{font-size:24px;font-weight:700;z-index:2;text-align:center;padding:20px}
+.preview:before,.preview:after{content:"";position:absolute;border-radius:50%;filter:blur(1px)}
+.preview:before{width:180px;height:180px;border:1px solid #00eaff88;animation:spin 8s linear infinite}
+.preview:after{width:80px;height:80px;background:#00eaff18;box-shadow:0 0 70px #00eaff55}
+@keyframes spin{to{transform:rotate(360deg)}}
+.info{padding:22px}.info h2{font-size:20px;color:#e8faff}.info p{color:#91a8b5;margin:8px 0 18px;line-height:1.5;font-size:14px}.open{color:#00eaff;font:12px monospace;letter-spacing:1px}
+.preview-02{background:linear-gradient(135deg,#f4f5f7,#dfe5ee);color:#111827}.preview-03{background:linear-gradient(135deg,#13051b,#ff2bd622);color:#f4e8ff}.preview-04{background:linear-gradient(135deg,#0b0710,#35184d);color:#eadcff}.preview-05{background:repeating-linear-gradient(0deg,#102532,#102532 19px,#183747 20px),repeating-linear-gradient(90deg,transparent,transparent 19px,#183747 20px);color:#d9f4ff}.preview-06{background:radial-gradient(circle,#352500,#111820);color:#e7fbff}.preview-07{background:linear-gradient(135deg,#222,#111);color:#f1f1f1}.preview-08{background:linear-gradient(135deg,#27324488,#8bdcff33);color:#f2f7ff;backdrop-filter:blur(8px)}.preview-09{background:#020402;color:#45ff45;font-family:monospace}.preview-10{background:radial-gradient(circle at 50% 45%,#26355c,#070910);color:#f0f4ff}.preview-11{background:radial-gradient(circle at 30% 30%,#2e3f8a22 0 2px,transparent 3px),#030615;color:#e8efff}.preview-12{background:#020b04;color:#00ff66;font-family:monospace}.preview-13{background:repeating-linear-gradient(0deg,#0b2532,#0b2532 19px,#164457 20px),repeating-linear-gradient(90deg,transparent,transparent 19px,#164457 20px);color:#dff8ff}.preview-14{background:linear-gradient(135deg,#121a28,#263b52);color:#eef4ff}.preview-15{background:linear-gradient(90deg,#111923 0 50%,#172631 50%);color:#eaf2f7}.preview-16{background:linear-gradient(90deg,#0d1117 0 50%,#18222d 50%);color:#f1f5f9}.preview-17{background:linear-gradient(135deg,#171827,#30264a);color:#f3f4f6}.preview-18{background:radial-gradient(circle,#66e6ff33,#101b27 60%);color:#e8fbff}.preview-19{background:linear-gradient(135deg,#080706,#2b210b);color:#f7edcf}.preview-20{background:radial-gradient(circle,#00eaff22,#101820);color:#e6f7ff}.preview-21{background:radial-gradient(circle at center,#6b5cff55,transparent 25%),#03030a;color:#f3f7ff}
+@media(max-width:1050px){.gallery{grid-template-columns:repeat(2,1fr)}}
+@media(max-width:650px){.gallery{grid-template-columns:1fr}}
+</style>
+</head>
+<body>
+<header>
+<h1>PORTFOLIO DESIGN LAB</h1>
+<p>HariPrasath P · 21 portfolio concepts · Select a design to open its full-screen prototype and compare the opening animation, visual language and layout.</p>
+</header>
+<main><div class="gallery">
+    <a class="design-card" href="01.html">
+      <div class="number">01</div>
+      <div class="preview preview-01"><span>Futuristic Tech</span></div>
+      <div class="info">
+        <h2>Futuristic Tech</h2>
+        <p>Digital grid boot-up</p>
+        <span class="open">OPEN DESIGN →</span>
+      </div>
+    </a>
+    <a class="design-card" href="02.html">
+      <div class="number">02</div>
+      <div class="preview preview-02"><span>Minimal Professional</span></div>
+      <div class="info">
+        <h2>Minimal Professional</h2>
+        <p>Smooth fade-in and text reveal</p>
+        <span class="open">OPEN DESIGN →</span>
+      </div>
+    </a>
+    <a class="design-card" href="03.html">
+      <div class="number">03</div>
+      <div class="preview preview-03"><span>Cyberpunk</span></div>
+      <div class="info">
+        <h2>Cyberpunk</h2>
+        <p>Glitch system boot</p>
+        <span class="open">OPEN DESIGN →</span>
+      </div>
+    </a>
+    <a class="design-card" href="04.html">
+      <div class="number">04</div>
+      <div class="preview preview-04"><span>Gothic Hacker</span></div>
+      <div class="info">
+        <h2>Gothic Hacker</h2>
+        <p>Terminal command sequence</p>
+        <span class="open">OPEN DESIGN →</span>
+      </div>
+    </a>
+    <a class="design-card" href="05.html">
+      <div class="number">05</div>
+      <div class="preview preview-05"><span>Mechanical Engineering</span></div>
+      <div class="info">
+        <h2>Mechanical Engineering</h2>
+        <p>Blueprint draws itself</p>
+        <span class="open">OPEN DESIGN →</span>
+      </div>
+    </a>
+    <a class="design-card" href="06.html">
+      <div class="number">06</div>
+      <div class="preview preview-06"><span>Iron Man / JARVIS</span></div>
+      <div class="info">
+        <h2>Iron Man / JARVIS</h2>
+        <p>Holographic system activation</p>
+        <span class="open">OPEN DESIGN →</span>
+      </div>
+    </a>
+    <a class="design-card" href="07.html">
+      <div class="number">07</div>
+      <div class="preview preview-07"><span>Industrial</span></div>
+      <div class="info">
+        <h2>Industrial</h2>
+        <p>Machine powering on</p>
+        <span class="open">OPEN DESIGN →</span>
+      </div>
+    </a>
+    <a class="design-card" href="08.html">
+      <div class="number">08</div>
+      <div class="preview preview-08"><span>Glassmorphism</span></div>
+      <div class="info">
+        <h2>Glassmorphism</h2>
+        <p>Blur-to-focus reveal</p>
+        <span class="open">OPEN DESIGN →</span>
+      </div>
+    </a>
+    <a class="design-card" href="09.html">
+      <div class="number">09</div>
+      <div class="preview preview-09"><span>Terminal Portfolio</span></div>
+      <div class="info">
+        <h2>Terminal Portfolio</h2>
+        <p>Typing commands launch the portfolio</p>
+        <span class="open">OPEN DESIGN →</span>
+      </div>
+    </a>
+    <a class="design-card" href="10.html">
+      <div class="number">10</div>
+      <div class="preview preview-10"><span>3D Engineering</span></div>
+      <div class="info">
+        <h2>3D Engineering</h2>
+        <p>Mechanical component assembly</p>
+        <span class="open">OPEN DESIGN →</span>
+      </div>
+    </a>
+    <a class="design-card" href="11.html">
+      <div class="number">11</div>
+      <div class="preview preview-11"><span>Space Theme</span></div>
+      <div class="info">
+        <h2>Space Theme</h2>
+        <p>Camera flies through space</p>
+        <span class="open">OPEN DESIGN →</span>
+      </div>
+    </a>
+    <a class="design-card" href="12.html">
+      <div class="number">12</div>
+      <div class="preview preview-12"><span>Matrix Style</span></div>
+      <div class="info">
+        <h2>Matrix Style</h2>
+        <p>Digital rain forms the name</p>
+        <span class="open">OPEN DESIGN →</span>
+      </div>
+    </a>
+    <a class="design-card" href="13.html">
+      <div class="number">13</div>
+      <div class="preview preview-13"><span>Blueprint + Cyber</span></div>
+      <div class="info">
+        <h2>Blueprint + Cyber</h2>
+        <p>Blueprint transforms into machine</p>
+        <span class="open">OPEN DESIGN →</span>
+      </div>
+    </a>
+    <a class="design-card" href="14.html">
+      <div class="number">14</div>
+      <div class="preview preview-14"><span>Modern Dashboard</span></div>
+      <div class="info">
+        <h2>Modern Dashboard</h2>
+        <p>Panels load sequentially</p>
+        <span class="open">OPEN DESIGN →</span>
+      </div>
+    </a>
+    <a class="design-card" href="15.html">
+      <div class="number">15</div>
+      <div class="preview preview-15"><span>Timeline Design</span></div>
+      <div class="info">
+        <h2>Timeline Design</h2>
+        <p>Timeline draws from past to present</p>
+        <span class="open">OPEN DESIGN →</span>
+      </div>
+    </a>
+    <a class="design-card" href="16.html">
+      <div class="number">16</div>
+      <div class="preview preview-16"><span>Split-Screen</span></div>
+      <div class="info">
+        <h2>Split-Screen</h2>
+        <p>Two panels slide together</p>
+        <span class="open">OPEN DESIGN →</span>
+      </div>
+    </a>
+    <a class="design-card" href="17.html">
+      <div class="number">17</div>
+      <div class="preview preview-17"><span>Animated Resume</span></div>
+      <div class="info">
+        <h2>Animated Resume</h2>
+        <p>Resume pages assemble digitally</p>
+        <span class="open">OPEN DESIGN →</span>
+      </div>
+    </a>
+    <a class="design-card" href="18.html">
+      <div class="number">18</div>
+      <div class="preview preview-18"><span>Holographic</span></div>
+      <div class="info">
+        <h2>Holographic</h2>
+        <p>Holographic scan constructs UI</p>
+        <span class="open">OPEN DESIGN →</span>
+      </div>
+    </a>
+    <a class="design-card" href="19.html">
+      <div class="number">19</div>
+      <div class="preview preview-19"><span>Black & Gold Premium</span></div>
+      <div class="info">
+        <h2>Black & Gold Premium</h2>
+        <p>Gold line traces and reveals page</p>
+        <span class="open">OPEN DESIGN →</span>
+      </div>
+    </a>
+    <a class="design-card" href="20.html">
+      <div class="number">20</div>
+      <div class="preview preview-20"><span>Mechanical HUD</span></div>
+      <div class="info">
+        <h2>Mechanical HUD</h2>
+        <p>Diagnostics and gauges activate</p>
+        <span class="open">OPEN DESIGN →</span>
+      </div>
+    </a>
+    <a class="design-card" href="21.html">
+      <div class="number">21</div>
+      <div class="preview preview-21"><span>Energy Portal</span></div>
+      <div class="info">
+        <h2>Energy Portal</h2>
+        <p>Energy portal forms and reveals portfolio</p>
+        <span class="open">OPEN DESIGN →</span>
+      </div>
+    </a></div></main>
+</body>
+</html>
