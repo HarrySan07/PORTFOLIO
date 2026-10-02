@@ -1,0 +1,310 @@
+/* =================================================
+           CINEMATIC PORTAL OPENING
+           ================================================= */
+
+#bootScreen {
+  position: fixed;
+
+  inset: 0;
+
+  z-index: 10000;
+
+  display: flex;
+
+  align-items: center;
+
+  justify-content: center;
+
+  overflow: hidden;
+
+  background: radial-gradient(
+    circle at center,
+    #180008 0%,
+    #060001 35%,
+    #010101 70%,
+    #000000 100%
+  );
+
+  opacity: 1;
+
+  visibility: visible;
+
+  transition:
+    opacity 1s ease,
+    visibility 1s ease;
+}
+
+#bootScreen.hide {
+  opacity: 0;
+
+  visibility: hidden;
+
+  pointer-events: none;
+}
+
+/* PORTAL */
+
+.portal {
+  position: relative;
+
+  width: min(42vw, 360px);
+
+  height: min(42vw, 360px);
+
+  min-width: 210px;
+
+  min-height: 210px;
+
+  border-radius: 50%;
+
+  display: flex;
+
+  align-items: center;
+
+  justify-content: center;
+
+  animation:
+    portalAppear 1.4s ease-out forwards,
+    portalFloat 3s ease-in-out 1.4s infinite;
+}
+
+/* OUTER RING */
+
+.portal-ring {
+  position: absolute;
+
+  inset: 0;
+
+  border-radius: 50%;
+
+  border: 3px solid rgba(255, 30, 70, 0.85);
+
+  box-shadow:
+    0 0 15px #ff1744,
+    0 0 40px rgba(255, 23, 68, 0.8),
+    0 0 90px rgba(255, 23, 68, 0.5),
+    inset 0 0 35px rgba(255, 23, 68, 0.5);
+
+  animation: portalRotate 7s linear infinite;
+}
+
+/* SECOND RING */
+
+.portal-ring::before {
+  content: "";
+
+  position: absolute;
+
+  inset: 12px;
+
+  border-radius: 50%;
+
+  border: 2px dashed rgba(255, 90, 110, 0.85);
+
+  box-shadow: 0 0 20px rgba(255, 23, 68, 0.7);
+
+  animation: portalRotateReverse 4s linear infinite;
+}
+
+/* INNER RING */
+
+.portal-ring::after {
+  content: "";
+
+  position: absolute;
+
+  inset: 28px;
+
+  border-radius: 50%;
+
+  border: 1px solid rgba(255, 180, 190, 0.65);
+
+  animation: portalPulse 1.8s ease-in-out infinite;
+}
+
+/* PORTAL CORE */
+
+.portal-core {
+  position: absolute;
+
+  width: 72%;
+
+  height: 72%;
+
+  border-radius: 50%;
+
+  background: radial-gradient(
+    circle,
+    rgba(255, 40, 70, 0.95) 0%,
+
+    rgba(120, 0, 20, 0.85) 28%,
+
+    rgba(20, 0, 5, 0.95) 65%,
+
+    #000000 100%
+  );
+
+  box-shadow:
+    0 0 30px rgba(255, 23, 68, 0.9),
+    0 0 80px rgba(255, 23, 68, 0.7),
+    0 0 150px rgba(255, 23, 68, 0.4);
+
+  animation: corePulse 1.5s ease-in-out infinite;
+}
+
+/* PARTICLES */
+
+.portal-particles {
+  position: absolute;
+
+  inset: -30%;
+
+  border-radius: 50%;
+
+  background:
+    radial-gradient(circle at 20% 30%, #ff526d 0 2px, transparent 3px),
+    radial-gradient(circle at 75% 20%, #ff1744 0 2px, transparent 3px),
+    radial-gradient(circle at 85% 65%, #ff7187 0 2px, transparent 3px),
+    radial-gradient(circle at 30% 80%, #ff1744 0 2px, transparent 3px),
+    radial-gradient(circle at 55% 10%, #ffffff 0 1px, transparent 2px),
+    radial-gradient(circle at 10% 65%, #ff405f 0 2px, transparent 3px);
+
+  filter: drop-shadow(0 0 5px #ff1744);
+
+  animation: particlesRotate 9s linear infinite;
+}
+
+/* ENERGY BURST */
+
+.portal-burst {
+  position: absolute;
+
+  width: 100%;
+
+  height: 100%;
+
+  border-radius: 50%;
+
+  border: 1px solid rgba(255, 255, 255, 0.75);
+
+  opacity: 0;
+
+  animation: burst 1.2s ease-out 1.5s forwards;
+}
+
+/* PORTAL APPEAR */
+
+@keyframes portalAppear {
+  0% {
+    transform: scale(0) rotate(-90deg);
+
+    opacity: 0;
+  }
+
+  45% {
+    transform: scale(0.65) rotate(-25deg);
+
+    opacity: 0.8;
+  }
+
+  75% {
+    transform: scale(1.08) rotate(5deg);
+
+    opacity: 1;
+  }
+
+  100% {
+    transform: scale(1) rotate(0deg);
+
+    opacity: 1;
+  }
+}
+
+/* RING ROTATION */
+
+@keyframes portalRotate {
+  from {
+    transform: rotate(0deg);
+  }
+
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+@keyframes portalRotateReverse {
+  from {
+    transform: rotate(360deg);
+  }
+
+  to {
+    transform: rotate(0deg);
+  }
+}
+
+/* INNER PULSE */
+
+@keyframes portalPulse {
+  0%,
+  100% {
+    transform: scale(0.9);
+
+    opacity: 0.4;
+  }
+
+  50% {
+    transform: scale(1.05);
+
+    opacity: 1;
+  }
+}
+
+@keyframes corePulse {
+  0%,
+  100% {
+    transform: scale(0.9);
+
+    opacity: 0.75;
+  }
+
+  50% {
+    transform: scale(1.08);
+
+    opacity: 1;
+  }
+}
+
+@keyframes particlesRotate {
+  from {
+    transform: rotate(0deg) scale(1);
+  }
+
+  to {
+    transform: rotate(360deg) scale(1.05);
+  }
+}
+
+@keyframes portalFloat {
+  0%,
+  100% {
+    transform: translateY(0);
+  }
+
+  50% {
+    transform: translateY(-8px);
+  }
+}
+
+@keyframes burst {
+  0% {
+    transform: scale(0.6);
+
+    opacity: 1;
+  }
+
+  100% {
+    transform: scale(1.8);
+
+    opacity: 0;
+  }
+}
