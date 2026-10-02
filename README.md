@@ -4,8 +4,8 @@
 
 > Designing mechanical systems. Exploring manufacturing. Building practical solutions.
 
-🌐 [**Live Portfolio**](https://harry13181.github.io/Portfolio/) ·  
-🐙 [**GitHub**](https://github.com/Harry13181) ·  
+🌐 [**Live Portfolio**](https://harrysan07.github.io/PORTFOLIO/)·  
+🐙 [**GitHub**](https://github.com/HarrySan07) ·  
 💼 [**LinkedIn**](https://linkedin.com/in/hari-prasath-p-bb4b11404) ·  
 📧 [**Email**](mailto:sit24me031@sairamtap.edu.in)
 
